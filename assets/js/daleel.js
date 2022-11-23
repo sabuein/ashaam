@@ -1,45 +1,55 @@
-import { id } from "./helpers.js";
-import employees from "../data/employees.json" assert { type: "json" };
+import defaultExport, { cl, convert, retrieve, fetcher } from "./helpers.js";
+import employees from "../data/employees.json" assert { type: "json" }; // Object
 import students from "../data/students.json" assert { type: "json" };
 import users from "../data/users.json" assert { type: "json" };
 
-// Convert JSON array into text
-// let text = JSON.stringify(employees);
+//////////////////////////////////////////////////////////////////////////
 
-// Retrieve the template data from the HTML and generating content
-const makeContent = (elementId, contextObject) => {
+defaultExport();
+await fetcher("https://api.wheretheiss.at/v1/satellites/25544");
 
-    var frag = document.createDocumentFragment();
+//////////////////////////////////////////////////////////////////////////
 
-    (function () {
-        for (var x = 0; x < 3; x++) {
-            var li = document.createElement("li");
-            li.innerHTML = "List item " + x;
-            frag.appendChild(li);
-        }
-    })();
+var e = employees,
+    s = students,
+    u = users;
 
-    console.log(frag.childNodes);
+cl(typeof e);
+cl(e);
+cl(typeof s);
+cl(s);
+cl(typeof u);
+cl(u);
+cl(typeof convert(e));
+cl(convert(e));
 
-    let source = id(elementId),
-        template = Handlebars.compile(source.innerHTML),
-        html = template(contextObject);
+//////////////////////////////////////////////////////////////////////////
 
-    // father.replaceChild(parser.parseFromString(html, "text/html"), source);
+const propertyNames = (data) => { return Object.keys(data) };
+const propertyValues = (data) => { return Object.values(data) };
+const entries = (data) => { return Object.entries(data) };
 
-    source.parentNode.replaceChild(document.createDocumentFragment(html), source);
-}
+cl(propertyNames(u));
+cl(propertyValues(u));
+cl(entries(u));
 
-let template = "entry-template",
-    context = {
+//////////////////////////////////////////////////////////////////////////
+
+const {firstName, lastName} = e.employees[0];
+cl(firstName);
+cl(lastName);
+
+let firstEmployee = {
         first_name: employees.employees[1].firstName,
         last_name: employees.employees[1].lastName
+    },
+    secondEmployee = {
+        first_name: employees.employees[2].firstName,
+        last_name: employees.employees[2].lastName
     };
 
-makeContent(template, context);
 
+retrieve("location-one", firstEmployee);
+retrieve("location-two", secondEmployee);
 
-var moreContext = {
-    first_name: employees.employees[1].firstName,
-    last_name: employees.employees[1].lastName
-};
+//////////////////////////////////////////////////////////////////////////
