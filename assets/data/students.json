@@ -1,0 +1,22 @@
+{
+    "students": [
+        {
+            "name": "Student 1",
+            "age": "22",
+            "department": "Information Technology",
+            "rollno": "123"
+        },
+        {
+            "name": "Student 2",
+            "age": "21",
+            "department": "Computer Engineering",
+            "rollno": "456"
+        },
+        {
+            "name": "Student 3",
+            "age": "23",
+            "department": "Information Technology",
+            "rollno": "789"
+        }
+    ]
+}

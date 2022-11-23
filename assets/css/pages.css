@@ -1,0 +1,18 @@
+:root {
+    --primiry-text-color: #333333;
+    --primiry-bg-color: #c2c2c2;
+}
+
+:root[theme="dark"] {
+    --primiry-text-color: #c2c2c2;
+    --primiry-bg-color: #333333;
+}
+
+body {
+    color: var(--primiry-text-color);
+    background-color: var(--primiry-bg-color);
+}
+
+main {
+    padding: 2rem;
+}
