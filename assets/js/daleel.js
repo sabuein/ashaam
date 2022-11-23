@@ -4,21 +4,42 @@ import students from "../data/students.json" assert { type: "json" };
 import users from "../data/users.json" assert { type: "json" };
 
 // Convert JSON array into text
-let employeesText = JSON.stringify(employees);
+// let text = JSON.stringify(employees);
 
-console.log("employees: ", employees);
-console.log("typeof 'employees' is: ", typeof employees);
-console.log("users: ", users);
-console.log("typeof 'users' is: ", typeof users);
-console.log("students: ", students);
-console.log("typeof 'students' is: ", typeof students);
+// Retrieve the template data from the HTML and generating content
+const makeContent = (elementId, contextObject) => {
 
-// Display results
-if (employeesText) {
-    console.log(employeesText);
-    console.log(typeof employeesText);
-    let contentElement = id("content#1");
-    // (contentElement.innerText = employeesText.slice(1, 12)) && (console.log(contentElement));
-    contentElement.innerHTML += `<p>${employees["employees"][1].firstName}</p>`;
-    contentElement.innerHTML += `<p>${employees["employees"][1].lastName}</p>`;
+    var frag = document.createDocumentFragment();
+
+    (function () {
+        for (var x = 0; x < 3; x++) {
+            var li = document.createElement("li");
+            li.innerHTML = "List item " + x;
+            frag.appendChild(li);
+        }
+    })();
+
+    console.log(frag.childNodes);
+
+    let source = id(elementId),
+        template = Handlebars.compile(source.innerHTML),
+        html = template(contextObject);
+
+    // father.replaceChild(parser.parseFromString(html, "text/html"), source);
+
+    source.parentNode.replaceChild(document.createDocumentFragment(html), source);
 }
+
+let template = "entry-template",
+    context = {
+        first_name: employees.employees[1].firstName,
+        last_name: employees.employees[1].lastName
+    };
+
+makeContent(template, context);
+
+
+var moreContext = {
+    first_name: employees.employees[1].firstName,
+    last_name: employees.employees[1].lastName
+};

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/helpers.css" />
     <link rel="stylesheet" href="/assets/css/pages.css" />
+    <!-- Include Handlebars from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script type="module" src="/assets/js/daleel.js"></script>
     <title>Daleel - Palestinians in the UK</title>
 </head>
@@ -15,30 +17,38 @@
             <h1>Daleel</h1>
             <h2>Find Palestinians in the UK</h2>
         </header>
-        <section>
-            <article>
-                <header>
-                    <h2>London</h2>
-                </header>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda maiores vitae impedit explicabo blanditiis tenetur praesentium a ullam, nobis illum perferendis qui illo architecto temporibus tempore iure non vero odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus libero voluptatum voluptates, laboriosam rem beatae doloremque odio explicabo! Cumque blanditiis quae adipisci eius quam cupiditate ullam similique voluptatem exercitationem. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eius beatae quibusdam fugit iste dolores architecto cupiditate similique? Temporibus excepturi quam ipsam perspiciatis illum cum esse accusamus quisquam quibusdam deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque cum eligendi tempora, fugiat porro suscipit eveniet deserunt fuga qui consectetur ipsum delectus. Aspernatur consequatur harum eius. Aspernatur, sit quam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt minima, in fugit, deleniti maxime laborum libero iure fugiat ducimus quis praesentium quo a quos reiciendis error possimus, natus architecto dolore.</p>
-                </div>
-                <div id="content#1"></div>
-            </article>
-            <article>
-                <header>
-                    <h2>London</h2>
-                </header>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda maiores vitae impedit explicabo blanditiis tenetur praesentium a ullam, nobis illum perferendis qui illo architecto temporibus tempore iure non vero odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus libero voluptatum voluptates, laboriosam rem beatae doloremque odio explicabo! Cumque blanditiis quae adipisci eius quam cupiditate ullam similique voluptatem exercitationem. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eius beatae quibusdam fugit iste dolores architecto cupiditate similique? Temporibus excepturi quam ipsam perspiciatis illum cum esse accusamus quisquam quibusdam deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque cum eligendi tempora, fugiat porro suscipit eveniet deserunt fuga qui consectetur ipsum delectus. Aspernatur consequatur harum eius. Aspernatur, sit quam.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt minima, in fugit, deleniti maxime laborum libero iure fugiat ducimus quis praesentium quo a quos reiciendis error possimus, natus architecto dolore.</p>
-                </div>
-                <div id="content#2"></div>
-            </article>
-        </section>
+        <script id="entry-template" type="text/x-handlebars-template">
+            <section>
+                <article>
+                    <header>
+                        <h2>London</h2>
+                    </header>
+                    <div>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda maiores vitae impedit explicabo blanditiis tenetur praesentium a ullam, nobis illum perferendis qui illo architecto temporibus tempore iure non vero odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus libero voluptatum voluptates, laboriosam rem beatae doloremque odio explicabo! Cumque blanditiis quae adipisci eius quam cupiditate ullam similique voluptatem exercitationem. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eius beatae quibusdam fugit iste dolores architecto cupiditate similique? Temporibus excepturi quam ipsam perspiciatis illum cum esse accusamus quisquam quibusdam deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque cum eligendi tempora, fugiat porro suscipit eveniet deserunt fuga qui consectetur ipsum delectus. Aspernatur consequatur harum eius. Aspernatur, sit quam.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt minima, in fugit, deleniti maxime laborum libero iure fugiat ducimus quis praesentium quo a quos reiciendis error possimus, natus architecto dolore.</p>
+                    </div>
+                    <div id="content#1">
+                        <p>{{first_name}}</p>
+                        <p>{{last_name}}</p>
+                    </div>
+                </article>
+                <article>
+                    <header>
+                        <h2>London</h2>
+                    </header>
+                    <div>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda maiores vitae impedit explicabo blanditiis tenetur praesentium a ullam, nobis illum perferendis qui illo architecto temporibus tempore iure non vero odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus libero voluptatum voluptates, laboriosam rem beatae doloremque odio explicabo! Cumque blanditiis quae adipisci eius quam cupiditate ullam similique voluptatem exercitationem. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eius beatae quibusdam fugit iste dolores architecto cupiditate similique? Temporibus excepturi quam ipsam perspiciatis illum cum esse accusamus quisquam quibusdam deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque cum eligendi tempora, fugiat porro suscipit eveniet deserunt fuga qui consectetur ipsum delectus. Aspernatur consequatur harum eius. Aspernatur, sit quam.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt minima, in fugit, deleniti maxime laborum libero iure fugiat ducimus quis praesentium quo a quos reiciendis error possimus, natus architecto dolore.</p>
+                    </div>
+                    <div id="content#2">
+                        <p>{{first_name}}</p>
+                        <p>{{last_name}}</p>
+                    </div>
+                </article>
+            </section>
+        </script>
     </main>
 </body>
 </html>
