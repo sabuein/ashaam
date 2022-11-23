@@ -1,8 +1,8 @@
 const id = (id) => { return document.getElementById(id); }
 const cn = (name) => { return document.getElementsByClassName(name); }
-const cl = (thing) => { return console.log(thing); }
+const cl = (thing) => { console.log(thing); }
 
-// Convert JSON array into text
+// Serialization the JSON to a string
 const convert = (json) => { return JSON.stringify(json) };
 
 // Retrieve the template data from the HTML and generating content
@@ -16,10 +16,8 @@ const retrieve = (node, data) => {
 const fetcher = (url) => {
     async function getData() {
         const response = await fetch(url),
-            data = await response.json(),
-            { latitude, longitude } = data;
-            cl(latitude);
-            cl(longitude);
+            data = await response.json();
+        return data;
     } return getData();
 }
 
