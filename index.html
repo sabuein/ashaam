@@ -19,27 +19,33 @@
         </header>
         <!-- script id="entry-template" type="text/x-handlebars-template" -->
         <section>
-            <article>
-                <header>
-                    <h2>London</h2>
+            <article class="handlebars">
+                <header title="{{title}}">
+                    <h2>{{title}}</h2>
                 </header>
                 <div>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda maiores vitae impedit explicabo blanditiis tenetur praesentium a ullam, nobis illum perferendis qui illo architecto temporibus tempore iure non vero odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus libero voluptatum voluptates, laboriosam rem beatae doloremque odio explicabo! Cumque blanditiis quae adipisci eius quam cupiditate ullam similique voluptatem exercitationem. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
-                <div class="names" id="location-one">
-                    <p>{{first_name}} {{last_name}}</p>
+                <div>
+                    <p>{{full_name}}, {{original_city}}</p>
                 </div>
+                <footer>
+                    <a href="{{twitter}}">Twitter</a>
+                </footer>
             </article>
-            <article>
-                <header>
-                    <h2>London</h2>
+            <article class="handlebars">
+                <header title="{{title}}">
+                    <h2>{{title}}</h2>
                 </header>
                 <div>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda maiores vitae impedit explicabo blanditiis tenetur praesentium a ullam, nobis illum perferendis qui illo architecto temporibus tempore iure non vero odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus libero voluptatum voluptates, laboriosam rem beatae doloremque odio explicabo! Cumque blanditiis quae adipisci eius quam cupiditate ullam similique voluptatem exercitationem. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
-                <div class="names" id="location-two">
-                    <p>{{first_name}} {{last_name}}</p>
+                <div>
+                    <p>{{full_name}}, {{original_city}}</p>
                 </div>
+                <footer>
+                    <a href="{{twitter}}">Twitter</a>
+                </footer>
             </article>
         </section>
         <!-- /script -->

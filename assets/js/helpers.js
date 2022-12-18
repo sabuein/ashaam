@@ -6,12 +6,21 @@ const cl = (thing) => { console.log(thing); }
 const convert = (json) => { return JSON.stringify(json) };
 
 // Retrieve the template data from the HTML and generating content
-const retrieve = (node, data) => {
-    let target = id(node),
-        template = Handlebars.compile(target.innerHTML),
+const retrieve = (element, data) => {
+    let template = Handlebars.compile(element.innerHTML),
         html = template(data);
-    return target.parentNode.replaceChild(document.createRange().createContextualFragment(html), target);
+    return element.innerHTML = html;
 }
+
+// const { full_name, original_city } = ;
+const inject = (data, i) => {
+    return {
+        title: data[i].title,
+        full_name: data[i].full_name,
+        original_city: data[i].original_city,
+        twitter: data[i].social_media.twitter
+    }
+};
 
 const fetcher = (url) => {
     async function getData() {
@@ -31,5 +40,6 @@ export {
     cl,
     convert,
     retrieve,
+    inject,
     fetcher
 }

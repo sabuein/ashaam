@@ -1,17 +1,7 @@
-import defaultExport, { cl, convert, retrieve, fetcher } from "./helpers.js";
-import employees from "../data/employees.json" assert { type: "json" }; // Deserialization to native object
-import students from "../data/students.json" assert { type: "json" }; // Deserialization to native object
-import users from "../data/users.json" assert { type: "json" }; // Deserialization to native object
-
+import defaultExport, { cl, cn, retrieve, inject } from "./helpers.js";
+import london from "../data/london.json" assert { type: "json" }; // Deserialization to native object
+/*
 //////////////////////////////////////////////////////////////////////////
-
-const propertyNames = (data) => { return Object.keys(data) };
-const propertyValues = (data) => { return Object.values(data) };
-const entries = (data) => { return Object.entries(data) };
-
-//////////////////////////////////////////////////////////////////////////
-
-defaultExport();
 
 let issURL = "https://api.wheretheiss.at/v1/satellites/25544",
     issData = await fetcher(issURL);
@@ -30,54 +20,52 @@ cl(propertyNames(tomtomData["results"][0]));
 cl("address: " + address);
 
 //////////////////////////////////////////////////////////////////////////
-
-var e = employees,
-    s = students,
-    u = users;
-
-cl(typeof e);
-cl(e);
-cl(typeof s);
-cl(s);
-cl(typeof u);
-cl(u);
-cl(typeof convert(e));
-cl(convert(e));
-
+*/
 //////////////////////////////////////////////////////////////////////////
 
-cl(propertyNames(u));
-cl(propertyValues(u));
-cl(entries(u));
+defaultExport();
 
-//////////////////////////////////////////////////////////////////////////
+const propertyNames = (data) => { return Object.keys(data) },
+    propertyValues = (data) => { return Object.values(data) },
+    entries = (data) => { return Object.entries(data) };
 
-cl("hi");
-const everything = () => {
-    e.employees.forEach(employee => {
-        const { firstName, lastName } = employee;
-        return { first_name: firstName, last_name: lastName }
-    });
+const val = (source, attribute) => {
+    cl("source:");
+    cl(source);
+    cl("source propertyNames:");
+    cl(propertyNames(source));
+    cl("source propertyValues:");
+    cl(propertyValues(source));
+    cl("source entries:");
+    cl(entries(source));
+    cl("attribute:");
+    cl(attribute);
 }
-cl("bye");
 
-// let firstEmployee = {
-//     first_name: employees.employees[1].firstName,
-//     last_name: employees.employees[1].lastName
-// },
-//     secondEmployee = {
-//         first_name: employees.employees[2].firstName,
-//         last_name: employees.employees[2].lastName
-//     };
+let data = london.london,
+    elements = cn("handlebars");
 
-// retrieve("location-one", firstEmployee);
-// retrieve("location-two", secondEmployee);
+for (let i = 0; i < elements.length; i++) {
+    retrieve(elements[i], inject(data, i));
+}
 
-const { first, second, third } = everything;
-retrieve("location-one", first);
-retrieve("location-two", second);
+data.map((item, index) => {
+    cl(index);
+    cl(item.full_name);
+    cl(item.social_media.twitter);
+});
 
-//////////////////////////////////////////////////////////////////////////
+
+
+cl(val(data, "full_name"));
+
+function hasPerson(full_name, object) {
+    return full_name in propertyValues(object);
+}
+
+function getAge(name, object) {
+    return entries(object[name]);
+}
 
 /*
 Category
