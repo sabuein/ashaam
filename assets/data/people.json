@@ -1,6 +1,6 @@
-{
-    "people": [
-        {
+getTheMan(
+    {
+        "people": {
             "slug": "cameron",
             "id": "5ddc9b9510d8970038255d02",
             "name": "Cameron Almeida",
@@ -15,5 +15,5 @@
             "meta_description": null,
             "url": "https://docs.ghost.io/author/cameron/"
         }
-    ]
-}
+    }
+);

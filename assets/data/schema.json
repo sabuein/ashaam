@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Person",
+    "properties": {
+        "name": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 22
+        },
+        "age": {
+            "type": "number",
+            "description": "The person age in years",
+            "minimum": 0
+        },
+        "description": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "name",
+        "age"
+    ]
+}
