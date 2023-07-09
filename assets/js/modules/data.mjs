@@ -1,3 +1,5 @@
+"use strict";
+
 const getData = (url) => {
     let myObject,
         myText,
@@ -11,7 +13,7 @@ const getData = (url) => {
     }
     myXML.open("get", url, true);
     myXML.send();
-}
+};
 
 let testing = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=d374d4f9124a3308f76ddab3ee00b581";
 

@@ -1,58 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" theme="dark">
 <head>
+    <title>Ashaam &dash; Connecting people in the UK with people in the Levant</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/helpers.css" />
-    <link rel="stylesheet" href="/assets/css/pages.css" />
-    <!-- Include Handlebars from a CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script type="module" src="/assets/js/daleel.js"></script>
-    <script type="text/javascript" src="/assets/data/people.json?callback=getTheMan"></script>
-    <title>Daleel - Palestinians in the UK</title>
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <script type="importmap">
+        {
+            "imports": {
+                "events": "./assets/js/modules/events.mjs"
+            }
+        }
+    </script>
+    <script type="module" src="/assets/js/application.js"></script>
 </head>
-<body class="flex column nowrap align-content-center justify-content-center align-items-center">
-    <main class="flex row nowrap align-content-center justify-content-center align-items-start outer-content-container">
-        <header class="triennial-space">
-            <h1>Daleel</h1>
-            <h2>Find Palestinians in the UK</h2>
+<body class="flexy">
+    <main class="flexy">
+        <header>
+            <h1>Ashaam</h1>
+            <h2>Connecting people in the UK with people in the Levant</h2>
         </header>
-        <!-- script id="entry-template" type="text/x-handlebars-template" -->
-        <section>
-            <article class="handlebars">
-                <header title="{{title}}">
-                    <h2>{{title}}</h2>
-                </header>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda maiores vitae impedit explicabo blanditiis tenetur praesentium a ullam, nobis illum perferendis qui illo architecto temporibus tempore iure non vero odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus libero voluptatum voluptates, laboriosam rem beatae doloremque odio explicabo! Cumque blanditiis quae adipisci eius quam cupiditate ullam similique voluptatem exercitationem. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-                <div>
-                    <p>{{full_name}}, {{original_city}}</p>
-                </div>
-                <footer>
-                    <a href="{{twitter}}">Twitter</a>
-                </footer>
-            </article>
-            <article class="handlebars">
-                <header title="{{title}}">
-                    <h2>{{title}}</h2>
-                </header>
-                <div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda maiores vitae impedit explicabo blanditiis tenetur praesentium a ullam, nobis illum perferendis qui illo architecto temporibus tempore iure non vero odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam possimus libero voluptatum voluptates, laboriosam rem beatae doloremque odio explicabo! Cumque blanditiis quae adipisci eius quam cupiditate ullam similique voluptatem exercitationem. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-                <div>
-                    <p>{{full_name}}, {{original_city}}</p>
-                </div>
-                <footer>
-                    <a href="{{twitter}}">Twitter</a>
-                </footer>
-            </article>
-        </section>
-        <!-- /script -->
     </main>
-    <footer>
-        <script type="text/javascript" src="/assets/js/app.js"></script>
-    </footer>
 </body>
 </html>
