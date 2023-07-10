@@ -9,11 +9,13 @@
     <script type="importmap">
         {
             "imports": {
-                "events": "./assets/js/modules/events.mjs"
+                "data": "./assets/js/modules/data.mjs",
+                "objects": "./assets/js/modules/objects.mjs",
+                "renderer": "./assets/js/modules/renderer.mjs"
             }
         }
     </script>
-    <script type="module" src="/assets/js/application.js"></script>
+    <script type="module" src="/assets/js/application.mjs"></script>
 </head>
 <body class="flexy">
     <main class="flexy">
@@ -21,6 +23,7 @@
             <h1>Ashaam</h1>
             <h2>Connecting people in the UK with people in the Levant</h2>
         </header>
+        <button type="button" id="refreshWindowButton">&#10227;</button>
     </main>
 </body>
 </html>
