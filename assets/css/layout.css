@@ -1,4 +1,11 @@
-:root {
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+:root[theme="light"] {
     --primiry-text-color: #333333;
     --primiry-bg-color: #c2c2c2;
 }
@@ -8,76 +15,113 @@
     --primiry-bg-color: #333333;
 }
 
-body {
-    color: var(--primiry-text-color);
-    background-color: var(--primiry-bg-color);
-}
-
-main {
-    padding: 2rem;
-}
-
-.flex {
+.flexy {
     display: flex;
-}
-
-.column {
     flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .row {
     flex-direction: row;
 }
 
-.wrap {
-    flex-wrap: wrap;
+.gap-x1 {
+    gap: 1em;
 }
 
-.nowrap {
-    flex-wrap: nowrap;
+
+.gap-x2 {
+    gap: 2em;
 }
 
-.align-content-center {
-    align-content: center;
+body {
+    margin: 0 auto;
+    color: var(--primiry-text-color);
+    background-color: var(--primiry-bg-color);
+    font-size: 18px;
+    font-weight: 400;
+    max-width: 1280px;
 }
 
-.justify-content-center {
-    justify-content: center;
+:is(header, main, section, div, body > footer) {
+    margin-bottom: 1em;
+    width: 100%;
 }
 
-.align-items-center {
-    align-items: center;
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5em;
 }
 
-.align-items-start {
-    align-items: flex-start;
+main {
+    margin-bottom: 0;
 }
 
-.outer-content-container {
-    width: 85%;
+figure {
+    margin-inline: 0;
+    margin-block: 0;
 }
 
-.triennial-space {
-    flex: 0 0 40%;
+figcaption,
+footer {
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    header,
+    div {
+        margin-bottom: 1em;
+    }
+    max-width: 100%;
 }
 
 a {
-    color: inherit;
-    text-decoration-color: aqua;
+    color: currentColor;
+    text-decoration-color: #ff0000;
+    cursor: pointer;
 }
 
 a:hover {
     text-decoration: none;
 }
 
-@media all and (max-width: 820px) {
+/* Elements with ID */
 
-    .row {
-        flex-direction: column;
+button#refreshWindowButton {
+    font-size: 5rem;
+    cursor: pointer;
+}
+
+section#activeEventsPanel article.flexy {
+    padding: 1em;
+    width: 21em;
+    border: thin solid black;
+    
+}
+
+@media all and (max-width: 1350px) {
+    section#activeEventsPanel article.flexy {
+        width: 30em;
     }
+}
 
-    .triennial-space {
-        flex: initial;
+@media all and (max-width: 1250px) {
+    section#activeEventsPanel article.flexy {
+        width: 24em;
     }
+}
 
+@media all and (max-width: 1015px) {
+    section#activeEventsPanel article.flexy {
+        width: 45em;
+    }
+}
+
+@media all and (max-width: 1350px) {
+    :is(header, main, section, div, body > footer) {
+        width: 95%;
+    }
 }
