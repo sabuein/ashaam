@@ -7,10 +7,47 @@ import {
     Event
 } from "objects";
 
+
+const newAddress = (address) => {
+    try {
+        const {
+            line1 = null,
+            line2 = null,
+            town = null,
+            county = null,
+            postcode = null,
+            latitude = null,
+            longitude = null,
+            elevation = null
+        } = address;
+        return (new Address({ line1, line2, town, county, postcode, latitude, longitude, elevation }) || null);
+    } catch (error) {
+        console.error(error);        
+    }
+};
+
+const newOrganizer = (organizer) => {
+    try {
+        const {
+            name = null,
+            email = null,
+            phone = null,
+            bio = null,
+            facebook = null,
+            instagram = null,
+            website = null,
+            logoURL = null
+        } = organizer;
+        return (new Organizer({ name, email, phone, bio, facebook, instagram, website, logoURL }) || null);
+    } catch (error) {
+        console.error(error);        
+    }
+};
+
 const newEvent = (address = null, venue = null, organizer = null, event = null ) => {
 
     if (!address && !venue && !organizer && !event) {
-        const addressX = new Address({
+        const addressX = newAddress({
             line1: "66 Westow Street",
             town: "London",
             county: "Greater London",
@@ -23,10 +60,10 @@ const newEvent = (address = null, venue = null, organizer = null, event = null )
         const venueX = new Venue({
             name: "Phoenix Community Centre",
             address: addressX,
-            phone: "020 8771 6023"
+            phone: "020-8771-6023"
         });
 
-        const organizerX = new Organizer({
+        const organizerX = newOrganizer({
             name: "Crystal Palace Friends of Palestine (CPFP)",
             email: "crystalpalestinegroup@gmail.com",
             bio: "Crystal Palace Friends of Palestine (CPFP) was established to inform, educate and raise awareness about the Palestinian struggle in Crystal Palace, Penge and the surrounding areas. CPFP aims to inspire the local community to raise their voices against the occupation of Palestine by the apartheid, settler colonial State of Israel.",
@@ -43,22 +80,30 @@ const newEvent = (address = null, venue = null, organizer = null, event = null )
             endDateTime: "2023-09-02T16:00:00Z",
             venue: venueX,
             organizer: organizerX,
+            cost: "Children FREE, Adults £3",
             coverPhoto: "./assets/data/images/crystalpalacefriendsofpalestine-20230902.png",
             status: "active"
+        });
+    } else {
+        const addressY = newAddress(address) || null;
+        const venueY = new Venue({
+            name: venue.name,
+            address: address,
+            phone: venue.phone
+        });
+        const organizerY = newOrganizer(organizer);
+        return new Event({
+            ...event,
+            venue: venueY,
+            organizer: organizerY
         });
     }
 };
 
 const init = () => {
     const events = [];
-    for (let index = 0; index < 7; index++) events.push(newEvent().toString());
-    console.log(events);
+    for (let index = 0; index < 21; index++) events.push(newEvent().toString());
     return handleEventsResponse(events);
 };
-
-// (function () {
-//     // setTimeout(x, 6000);
-//     return handleEventsResponse(newEvent().toString());
-// })();
 
 init();
