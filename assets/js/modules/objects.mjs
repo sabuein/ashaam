@@ -207,6 +207,7 @@ const Event = class {
     #endDateTime;
     #venue;
     #organizer;
+    #cost;
     #coverPhoto;
     #status;
     #addedAt = + Date.now();
@@ -220,6 +221,7 @@ const Event = class {
         this.#endDateTime = event.endDateTime || null;
         this.#venue = event.venue.toString() || null;
         this.#organizer = event.organizer.toString() || null;
+        this.#cost = event.cost || null;
         this.#coverPhoto = event.coverPhoto || null;
         this.#status = event.status || null;
         this.#updatedAt = event.updatedAt || null;
@@ -253,6 +255,10 @@ const Event = class {
         return this.#organizer;
     }
 
+    get cost() {
+        return this.#cost;
+    }
+
     get coverPhoto() {
         return this.#coverPhoto;
     }
@@ -270,6 +276,7 @@ const Event = class {
             endDateTime: this.endDateTime,
             venue: this.venue,
             organizer: this.organizer,
+            cost: this.cost,
             coverPhoto: this.coverPhoto,
             status: this.status
         };

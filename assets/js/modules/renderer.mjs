@@ -7,6 +7,7 @@ const handleEventsResponse = (data) => {
     const section = document.getElementById("activeEventsPanel");
     if (!!data && !!data.coverPhoto) {
         console.dir(data);
+        console.log(JSON.stringify(data, null, 2));
         return renderEvent(data, section);
     } else if (!!data) {
         return data.forEach(element => {
@@ -16,7 +17,6 @@ const handleEventsResponse = (data) => {
         console.log("Data:");
         console.dir(data);
         console.log(`Data type: ${typeof data}.`);
-        // console.log(JSON.stringify(data, null, 2));
     }
 };
 
@@ -62,9 +62,13 @@ const renderEvent = (data, output) => {
 
         if (!!descriptionHTML) {
             const div = document.createElement("div");
-            div.innerHTML = descriptionHTML;
+            const details = document.createElement("details");
+            details.innerHTML = descriptionHTML;
             div.setAttribute("class", "flexy gap-x1");
-            article.appendChild(div);
+            const summary = document.createElement("summary");
+            summary.appendChild(document.createTextNode("Read more..."));
+            details.appendChild(summary);
+            article.appendChild(details);
         }
 
         if (!!startDateTime) {
