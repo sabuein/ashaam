@@ -1,18 +1,51 @@
-* {
+*,
+::before,
+::after {
     margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    clear: both;
+}
+
+::-webkit-scrollbar {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+::-webkit-scrollbar-button {
+    background-color: #3e4346;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #242424;
+    border: 2px solid #3e4346;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #646464;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #3e4346;
 }
 
 :root[theme="light"] {
     --primiry-text-color: #333333;
     --primiry-bg-color: #c2c2c2;
+    --ashaam-text-color: #ff0000;
 }
 
 :root[theme="dark"] {
     --primiry-text-color: #c2c2c2;
     --primiry-bg-color: #333333;
+}
+
+::selection {
+    text-shadow: none;
+    color: var(--primiry-bg-color);
+    background-color: var(--primiry-text-color);
 }
 
 .flexy {
@@ -32,9 +65,13 @@
     gap: 1em;
 }
 
-
 .gap-x2 {
     gap: 2em;
+}
+
+html {
+    font-size: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -46,13 +83,26 @@ body {
     max-width: 1280px;
 }
 
-:is(header, main, section, div, body > footer) {
+:is(header, main, section, div, details, table, footer) {
     margin-bottom: 1em;
     width: 100%;
 }
 
+h1, h2, h3, h4, h5, h6, blockquote, q, p {
+    -webkit-font-smoothing: antialiased;
+}
+
 h1, h2, h3, h4, h5, h6 {
+    margin-top: .1em;
     margin-bottom: .5em;
+}
+
+h1 {
+    margin: 0;
+    line-height: 1.4em;
+    font-size: 3em;
+    font-weight: 400;
+    text-align: start;
 }
 
 main {
@@ -71,16 +121,12 @@ footer {
 
 img {
     width: 100%;
-    header,
-    div {
-        margin-bottom: 1em;
-    }
     max-width: 100%;
 }
 
 a {
     color: currentColor;
-    text-decoration-color: #ff0000;
+    text-decoration-color: var(--ashaam-text-color);
     cursor: pointer;
 }
 
@@ -88,23 +134,178 @@ a:hover {
     text-decoration: none;
 }
 
-/* Elements with ID */
-
-button#refreshWindowButton {
-    font-size: 5rem;
+summary {
     cursor: pointer;
 }
 
+menu {
+    width: 100%;
+}
+
+th,
+td {
+    padding: .5em;
+}
+
+td {
+    border: thin solid black;
+}
+
+body > footer {
+    margin: 0;
+}
+
+body > footer > section > h5 {
+    margin: 0;
+    width: inherit;
+    text-align: start;
+}
+
+body > footer > a:last-of-type {
+    padding: 6em 0;
+}
+
+div.appButtons {
+    padding: 0.25em;
+    width: unset;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #ffffff70;
+    align-content: flex-end;
+    justify-content: flex-end;
+    gap: .5em;
+    user-select: none;
+    z-index: 999;
+}
+
+div.appButtons button {
+    background: none;
+    font-size: 4rem;
+    cursor: pointer;
+    rotate: 0deg;
+    transition: rotate 1s ease-in-out 0s;
+}
+
+div.appButtons button#refreshWindowButton:hover {
+    rotate: 360deg;
+    transition: rotate 1s ease-in-out 0s;
+}
+
+div.appButtons button#trigramForHeaven:hover {
+    rotate: 90deg;
+    transition: rotate 500ms ease-in-out 0s;
+}
+
+section#activeEventsPanel {
+    counter-reset: activeEvents;
+}
+
 section#activeEventsPanel article.flexy {
+    position: relative;
     padding: 1em;
     width: 21em;
-    border: thin solid black;
-    
+    border: thin solid #d9d9d9;
+    justify-content: flex-start;
+}
+
+section#activeEventsPanel article.flexy::before {
+    counter-increment: activeEvents;
+    padding: 0 .25em;
+    position: absolute;
+    left: -.65em;
+    content: counter(activeEvents);
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--ashaam-text-color);
+    background-color: #d9d9d9;
+    border-top-left-radius: .25em;
+    border-bottom-left-radius: .25em;
+    border: .1em solid currentColor;
+    user-select: none;
+    /*border-radius: .25em;*/
+}
+
+section#activeEventsPanel h3 {
+    text-transform: uppercase;
+}
+
+footer.mayBeInterested {
+    margin: 0;
+    padding: 1em;
+}
+
+footer.mayBeInterested h4 {
+    text-align: start;
+}
+
+footer.mayBeInterested :is(h4, h5, article) {
+    margin: 0;
+    width: 100%;
+}
+
+footer.mayBeInterested h5::before {
+    position: absolute;
+    margin-left: -1em;
+    content: "\21B3 ";
+}
+
+footer.mayBeInterested article {
+    padding: 1em 0;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 1.25em;
+}
+
+footer.mayBeInterested div {
+    margin: 0;
+    width: 15em;
+    align-items: flex-start;
+    gap: .25em;
+}
+
+ul.emailSocialCode {
+    /*list-style: square;
+    list-style-position: inside;*/
+    width: 100%;
+    list-style: none;
+    gap: 1em;
+}
+
+ul.emailSocialCode h5 {
+    margin: 0;
+}
+
+ul.emailSocialCode li:first-child {
+    list-style: none;
+}
+
+menu.secondaryMenu {
+    list-style: none;
+}
+
+menu.secondaryMenu h5 {
+    margin: 0;
+}
+
+section.indexFooter {
+    justify-content: space-between;
+}
+
+div.copyrights {
+    padding: 1em 0;
+    gap: .5em;
 }
 
 @media all and (max-width: 1350px) {
     section#activeEventsPanel article.flexy {
         width: 30em;
+    }
+
+    :is(header, main, section, div, footer) {
+        width: 95%;
     }
 }
 
@@ -114,14 +315,18 @@ section#activeEventsPanel article.flexy {
     }
 }
 
-@media all and (max-width: 1015px) {
-    section#activeEventsPanel article.flexy {
-        width: 45em;
+@media all and (max-width: 1054px) {
+    /*ul.emailSocialCode li:first-child {
+        list-style: square;
+    }*/
+
+    section.indexFooter article {
+        width: 100%;
     }
 }
 
-@media all and (max-width: 1350px) {
-    :is(header, main, section, div, body > footer) {
-        width: 95%;
+@media all and (max-width: 1015px) {
+    section#activeEventsPanel article.flexy {
+        width: 45em;
     }
 }
