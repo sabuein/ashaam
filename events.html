@@ -18,19 +18,78 @@
     <script type="module" src="/assets/js/application.mjs"></script>
 </head>
 <body class="flexy">
-    <button type="button" id="refreshWindowButton">&#10227;</button>
-    <main class="flexy">
+    <div class="appButtons flexy">
+        <button type="button" id="refreshWindowButton" title="Reload this page">&#10227;</button>
+        <button type="button" id="trigramForHeaven" title="Menu">&#x2630;</button>
+    </div>
+    <main id="content" class="flexy">
         <header>
-            <h1>Ashaam</h1>
+            <h1><a href="#" title="Ashaam">Ashaam</a></h1>
             <h2>Connecting people in the UK with people in the Levant</h2>
         </header>
         <section id="activeEventsPanel" class="flexy row gap-x2"></section>
-        <section id="inactiveEeventsPanel" class="flexy row gap-x2"></section>
-        <footer>Menu</footer>
+        <section id="inactiveEeventsPanel" class="flexy row gap-x2">
+            <details>
+                <summary>Past events</summary>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Corrupti</th>
+                            <th>Voluptatem</th>
+                            <th>Pariatur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex voluptatum suscipit dolorum quas aliquam nam ut dolor. Et asperiores qui, fugiat ex impedit rerum, inventore illum, amet quisquam facilis voluptatum!</td>
+                            <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti deleniti ea natus enim molestiae modi facere nemo tenetur, optio iste cupiditate minima atque dolores, vitae maiores id libero cumque sed.</td>
+                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur repudiandae aut unde eligendi nam, exercitationem quibusdam voluptate magnam, neque obcaecati accusantium officiis minima libero fugiat quaerat minus magni nihil suscipit?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+        </section>
+        <footer class="mayBeInterested flexy">
+            <h4>You may also be interested in&hellip;</h4>
+            <article class="flexy">
+                <div class="flexy">
+                    <h5>South Asian Heritage Month</h5>
+                    <time>Friday 28 July 2023</time>
+                </div>
+                <div class="flexy">
+                    <h5>Withington Library fostering event</h5>
+                    <time>Wednesday 19 July 2023</time>
+                </div>
+                <div class="flexy">
+                    <h5>Manchester Day on Holiday</h5>
+                    <time>Saturday 29 July 2023</time>
+                </div>
+            </article>
+        </footer>
     </main>
-    <footer class="flexy gap-x1">
-        <p>Made with love by a Palestinian living in London!</p>
-        <time>&copy;2023</time>
+    <footer class="indexFooter flexy gap-x1">
+        <menu class="secondaryMenu flexy row gap-x1">
+            <h5>Menu&colon;</h5>
+            <li><a href="/index.html" target="_top">Home</a></li>
+            <li><a href="/events.html" target="_top">Events</a></li>
+            <li><a href="#" target="_top">Subscribe</a></li>
+            <li><a href="#" target="_top">Contact us</a></li>
+        </menu>
+        <ul class="emailSocialCode flexy row">
+            <h5>Email updates, social media, and code&colon;</h5>
+            <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">Subscribe</a></li>
+            <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">Facebook</a></li>
+            <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">YouTube</a></li>
+            <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">Instagram</a></li>
+            <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">GitHub</a></li>
+        </ul>
+        <a href="#content">Back to top</a>
+        <div class="copyrights flexy">
+            <p>Made with &hearts; by a Palestinian in London&comma;</p>
+            <p>&copy; <time>2023</time> Salaheddin AbuEin&period;</p>
+        </div>
     </footer>
 </body>
 </html>
