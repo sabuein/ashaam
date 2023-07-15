@@ -600,7 +600,7 @@ footer.global {
     margin: 0;
     margin-bottom: 1em;
     gap: 1em;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
     font-size: 1rem;
     width: 100%;
