@@ -18,29 +18,33 @@
 }
 
 ::-webkit-scrollbar-button {
-    background-color: var(--ashaam-text-color);
+    background-color: var(--lightgray-color);
+    outline: thick solid var(--lightgray-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    height: 50px;
-    background-color: #ffffff;
-    border: 2px solid #3e4346;
+    background-color: var(--ashaam-bg-color-80);
+    border: thick solid var(--ashaam-text-color);
+    
+    
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #646464;
+    background-color: var(--primiry-bg-color);
+    outline: thick solid var(--lightgray-color);
+    border: transparent;
 }
 
 ::-webkit-scrollbar-track-piece {
-    background-color: palevioletred;
+    background-color: var(--primiry-bg-color);
 }
 
 :root[theme="light"] {
     --primiry-text-color: #333333;
     --primiry-bg-color: #c2c2c2;
     --primiry-bg-color: whitesmoke;
-    --ashaam-text-color: #ff0000;
-    --ashaam-bg-color-50: #ff000050;
+    --ashaam-text-color: #ba000b;
+    --ashaam-bg-color-80: #ba000b50;
     --lightgray-color: #d9d9d9;
     --lightgray-color-50: #d9d9d950;
     --lightgray-color-90: #d9d9d990;
@@ -245,7 +249,7 @@ nav.global div.buttons::before {
     top: 0;
     right: 1em;
     color: var(--primiry-text-color);
-    background-color: var(--lightgray-color-90);
+    background-color: var(--lightgray-color);
     padding: 0 .5em;
     border-bottom-left-radius: .25em;
     font-size: 3rem;
@@ -392,7 +396,7 @@ div.placeholders :is(ul.waterways, ul.countries) li {
     color: var(--primiry-text-color);
     background-color: var(--lightgray-color);
     background-color: var(--lightgray-color-90);
-    width: fit-content;
+    width: max-content;
     padding: .25em;
     border: 0;
     box-shadow: .15em .1em midnightblue;
