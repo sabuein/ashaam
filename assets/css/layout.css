@@ -217,6 +217,7 @@ nav.global figure.logo {
 
 nav.global figure.logo img {
     height: 5em;
+    height: 100%;
     max-width: 200px;
     mix-blend-mode: multiply;
 }
@@ -332,7 +333,7 @@ body.index figure.easternMediterranean {
     position: relative;
     outline: none;
     margin: 0;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     padding: 1.5em;
     padding: 0;
     width: 100%;
@@ -393,17 +394,22 @@ div.placeholders :is(ul.waterways, ul.countries) li {
     background-color: var(--lightgray-color-90);
     width: fit-content;
     padding: .25em;
-    border-radius: .25em;
-    border: thick dashed var(--ashaam-text-color);
-    border-style: none;
-    box-shadow: 0.1em 0.1em midnightblue;
+    border: 0;
+    box-shadow: .15em .1em midnightblue;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li:hover {
+    box-shadow: none;
+    cursor: pointer;
+    box-shadow: -.15em -.1em midnightblue;
 }
 
 div.placeholders :is(ul.waterways, ul.countries) li a {
     text-decoration: none;
     font-size: larger;
     font-weight: bold;
-    color: midnightblue;
+    color: transparent;
+    text-shadow: 0 0 var(--primiry-bg-color);
 }
 
 div.placeholders :is(ul.waterways, ul.countries) li[data-slug="mediterranean"] {
@@ -555,7 +561,8 @@ footer.mayBeInterested div {
 ul.emailSocialCode {
     /*list-style: square;
     list-style-position: inside;*/
-    width: 100%;
+    flex: 1 0 100%;
+    justify-content: flex-start;
     list-style: none;
     gap: 1em;
 }
@@ -617,6 +624,10 @@ footer.global :is(div.links, div.copyrights, div.display, div.external, div.inte
     gap: .5em;
 }
 
+footer.global div.gotop {
+    flex: 1 0 100%;
+}
+
 footer.global div.copyrights {
     flex: 1 0 100%;
     align-items: center;
@@ -640,7 +651,7 @@ section.badges h4 {
 
 section.badges figure.app-store {
     padding-top: .5em;
-    gap: .5em;
+    gap: .2em;
 }
 
 section.badges figure {
