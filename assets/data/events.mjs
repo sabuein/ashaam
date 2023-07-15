@@ -102,7 +102,7 @@ const newEvent = (address = null, venue = null, organizer = null, event = null )
 
 const init = () => {
     const events = [];
-    for (let index = 0; index < 21; index++) events.push(newEvent().toString());
+    for (let index = 0; index < 13; index++) events.push(newEvent().toString());
     return handleEventsResponse(events);
 };
 
