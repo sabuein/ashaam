@@ -207,7 +207,7 @@ body > footer > a:last-of-type {
 
 nav.global {
     margin: 0;
-    padding: 1em 0;
+    padding: 1em;
     width: 100%;
     justify-content: space-evenly;
 }
@@ -568,7 +568,7 @@ ul.emailSocialCode {
     flex: 1 0 100%;
     justify-content: flex-start;
     list-style: none;
-    gap: 1em;
+    gap: .5em;
 }
 
 ul.emailSocialCode h5 {
@@ -639,6 +639,7 @@ footer.global div.copyrights {
 
 footer.global ul.anotherMenu {
     list-style: none;
+    justify-content: flex-start;
 }
 
 section.badges {
