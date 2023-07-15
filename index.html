@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" theme="dark">
+<html lang="en" theme="light">
 <head>
-    <title>Ashaam &dash; Connecting people in the UK with people in the Levant</title>
+    <title>Ashaam &dash; Homepage</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,20 +17,79 @@
     </script>
     <script type="module" src="/assets/js/application.mjs"></script>
 </head>
-<body class="flexy">
-    <button type="button" id="refreshWindowButton" title="Reload this page">&#10227;</button>
-    <main class="flexy">
-        <header>
-            <h1>Ashaam</h1>
-            <h2>Connecting people in the UK with people in the Levant</h2>
-        </header>
-        <section id="indexContent" class="flexy row gap-x2"></section>
-        <footer>Menu</footer>
+<body class="index flexy">
+    <header>
+        <h1><a href="/index.html" title="Homepage">Ashaam</a></h1>
+        <h2>Connecting people in the UK with people in the Levant</h2>
+    </header>
+    <nav class="appButtons flexy">
+        <button type="button" id="refreshWindowButton" title="Reload this page">&#10227;</button>
+        <button type="button" id="trigramForHeaven" title="Menu">&#x2630;</button>
+    </nav>
+    <figure class="easternMediterranean flexy">
+        <!-- <img alt="An aerial view of the Eastern Mediterranean" title="Ashaam aka Levant aka Eastern Mediterranean" src="/assets/data/images/ISS-47_Middle_East.jpg" /> -->
+        <figcaption>An aerial view of the <a href="https://en.wikipedia.org/wiki/Eastern_Mediterranean" target="_blank" title="Eastern Mediterranean - Wikipedia">Eastern Mediterranean</a> &dash; Source&colon; <a href="https://en.wikipedia.org/wiki/Eastern_Mediterranean#/media/File:ISS-47_Middle_East.jpg" target="_blank" title="ISS-47 Middle East - Eastern Mediterranean - Wikipedia">Wikipedia</a>&period;</figcaption>
+    </figure>
+    <main id="content" class="flexy">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptates aperiam a, quod suscipit sapiente rerum praesentium? Mollitia saepe dolore quisquam in similique iusto enim consectetur tempore dolorum dolor! Consequuntur! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, officia, alias aut labore sint vero eligendi, laborum fugit magni veritatis asperiores. Incidunt facilis iure culpa nihil animi cumque officia temporibus!</p>
+        <menu class="secondaryMenu flexy row gap-x1">
+            <li><h3><a href="/gazette.html" target="_top" title="Ashaam Gazette">Ashaam Gazette</a></h3></li>
+            <li><h3><a href="/shop.html" target="_top" title="Ashaam Shop">Ashaam Shop</a></h3></li>
+            <li><h3><a href="/events.html" target="_top" title="Events and exhibitions">Events and exhibitions</a></h3></li>
+        </menu>
     </main>
-    <footer class="flexy gap-x1">
-        <p>Made with love by a Palestinian living in London!</p>
-        <p>Made with love by a Palestinian living in London!</p>
-        <div><span>Salaheddin AbuEin</span> &copy; <time>2023</time> &bull; <a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">GitHub</a></div>
+    <section class="badges flexy">
+        <h4>Download the Ashaam app (Coming soon, insha'Allah)!</h4>
+        <article class="flexy row">
+            <figure class="app-store flexy">
+                <a href="#" title="Download on the App Store" target="_blank"><img alt="Download on the App Store" src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png" /></a>
+                <figcaption>Apple and the Apple logo are trademarks of Apple Inc&period;</figcaption>
+            </figure>
+            <figure class="google-play flexy">
+                <!-- https://play.google.com/store/apps/details?id=uk.co.ashaam&utm_source=webapp&utm_campaign=2023 -->
+                <a href="#" title="Get it on Google Play" target="_blank"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" /></a>
+                <figcaption>Google Play and the Google Play logo are trademarks of Google LLC&period;</figcaption>
+            </figure>
+        </article>
+    </section>
+    <footer class="global flexy row">
+        <div class="links flexy">
+            <div class="external flexy">
+                <h5>Email updates, social media, and code&colon;</h5>
+                <ul class="emailSocialCode flexy row">
+                    <li><a href="/subscriptions.html" title="Subscribe to email updates">Subscribe</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">Twitter</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">Facebook</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">YouTube</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">Instagram</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Another menu&colon;</h5>
+                <ul class="internal flexy row">
+                    <li><a href="/index.html" target="_top" title="Homepage">Homepage</a></li>
+                    <li><a href="/about.html" target="_top" title="About">About</a></li>
+                    <li><a href="/account.html" target="_top" title="Account">Account</a></li>
+                    <li><a href="/contact.html" target="_top" title="Contact">Contact</a></li>
+                    <li><a href="/privacy.html" target="_top" title="Privacy">Privacy</a></li>
+                    <li><a href="/terms.html" target="_top" title="Terms">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="display flexy row">
+            <label for="displayLanguage">Display language</label>
+            <select name="language" id="displayLanguage">
+                <option hreflang="ar" rel="alternate" value="/ar/">العربية</option>
+                <option hreflang="en_uk" rel="alternate" value="/en_uk/" selected>English (United Kingdom)</option>
+            </select>
+        </div>
+        <div class="copyrights flexy">
+            <p>Made with &hearts; by a Palestinian in London&comma;</p>
+            <p>&copy; <time>2023</time> Salaheddin AbuEin&period;</p>
+        </div>
     </footer>
+    <a href="#content" title="Back to main content">&UpArrowBar;</a>
 </body>
 </html>
