@@ -42,6 +42,7 @@
     --ashaam-text-color: #ff0000;
     --ashaam-bg-color-50: #ff000050;
     --lightgray-color: #d9d9d9;
+    --lightgray-color-50: #d9d9d950;
     --lightgray-color-90: #d9d9d990;
 }
 
@@ -201,6 +202,7 @@ body > footer > a:last-of-type {
 /* Start global nav */
 
 nav.global {
+    margin: 0;
     padding: 1em 0;
     width: 100%;
     justify-content: space-evenly;
@@ -330,7 +332,9 @@ body.index figure.easternMediterranean {
     position: relative;
     outline: none;
     margin: 0;
+    margin-bottom: 1em;
     padding: 1.5em;
+    padding: 0;
     width: 100%;
     height: 85dvh;
     min-height: 25dvh;
@@ -341,25 +345,29 @@ body.index figure.easternMediterranean {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("/assets/images/ISS-47_Middle_East.jpg");
+    background-image: url("../images/ISS-47_Middle_East.jpg");
     border-radius: .25em;
     border: thin dashed var(--ashaam-text-color);
+    border: 0;
 }
 
 body.index figure.easternMediterranean img {
     max-width: 100%;
-    height: 100dvh;
-    mix-blend-mode: multiply;
+    height: 100%;
+    mix-blend-mode: normal;
 }
 
 body.index figure.easternMediterranean figcaption {
     padding: .5em;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--primiry-text-color);
-    background-color: var(--lightgray-color-90);
+    background-color: var(--primiry-bg-color);
     position: absolute;
-    bottom: 0;
-    width: 100%;
+    bottom: -1em;
+    right: 1em;
+    max-width: 90%;
+    border-radius: .25em;
+    border: thick dashed var(--ashaam-text-color);
 }
 
 body.index figure.easternMediterranean figcaption a {
@@ -367,26 +375,85 @@ body.index figure.easternMediterranean figcaption a {
 }
 
 div.placeholders {
-    display: none;
+    /* display: none; */
+    position: absolute;
 }
 
 div.placeholders :is(ul.waterways, ul.countries) {
-    list-style-image: url("/assets/images/marker-16px.png");
+    position: relative;
+    list-style-image: url("../images/marker-16px.png");
     list-style-position: inside;
     background-color: transparent;
 }
 
 div.placeholders :is(ul.waterways, ul.countries) li {
-    color: var(--lightgray-color);
-    background-color: var(--primiry-text-color);
+    position: absolute;
+    color: var(--primiry-text-color);
+    background-color: var(--lightgray-color);
+    background-color: var(--lightgray-color-90);
     width: fit-content;
     padding: .25em;
     border-radius: .25em;
+    border: thick dashed var(--ashaam-text-color);
+    border-style: none;
+    box-shadow: 0.1em 0.1em midnightblue;
 }
 
-div.placeholders :is(ul.waterways, ul.countries) li::marker {
-    width: 1em;
-    height: 1em;
+div.placeholders :is(ul.waterways, ul.countries) li a {
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bold;
+    color: midnightblue;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li[data-slug="mediterranean"] {
+    top: -10em;
+    right: 40em;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li[data-slug="red"] {
+    top: 20em;
+    left: 10em;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li[data-slug="mediterranean"] {
+    top: -10em;
+    right: 40em;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li[data-slug="mediterranean"] {
+    top: -10em;
+    right: 40em;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li[data-slug="mediterranean"] {
+    top: -10em;
+    right: 40em;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li[data-slug="mediterranean"] {
+    top: -10em;
+    right: 40em;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li[data-slug="mediterranean"] {
+    top: -10em;
+    right: 40em;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li[data-slug="mediterranean"] {
+    top: -10em;
+    right: 40em;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li[data-slug="mediterranean"] {
+    top: -10em;
+    right: 40em;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li[data-slug="mediterranean"] {
+    top: -10em;
+    right: 40em;
 }
 
 body.index main p {
@@ -530,16 +597,21 @@ pre {
 /* Start global footer */
 
 footer.global {
-    margin: 1em 0;
+    margin: 0;
+    margin-bottom: 1em;
     gap: 1em;
     justify-content: space-around;
     align-items: flex-end;
     font-size: 1rem;
+    width: 100%;
+}
+
+footer.global > * {
+    padding: 0 1em;
 }
 
 footer.global :is(div.links, div.copyrights, div.display, div.external, div.internal, ul.anotherMenu) {
     margin: 0;
-    padding: 0;
     width: fit-content;
     align-items: flex-start;
     gap: .5em;
@@ -556,6 +628,7 @@ footer.global ul.anotherMenu {
 
 section.badges {
     margin: 0;
+    margin-bottom: 1em;
     padding: 0;
     gap: 1em;
     user-select: none;
