@@ -1,3 +1,5 @@
+/* /////////////////////////////////////////////////////////////////////// */
+
 *,
 ::before,
 ::after {
@@ -38,6 +40,7 @@
     --primiry-bg-color: #c2c2c2;
     --primiry-bg-color: whitesmoke;
     --ashaam-text-color: #ff0000;
+    --ashaam-bg-color-50: #ff000050;
     --lightgray-color: #d9d9d9;
     --lightgray-color-90: #d9d9d990;
 }
@@ -52,6 +55,8 @@
     color: var(--primiry-bg-color);
     background-color: var(--primiry-text-color);
 }
+
+/* /////////////////////////////////////////////////////////////////////// */
 
 .flexy {
     display: flex;
@@ -73,6 +78,8 @@
 .gap-x2 {
     gap: 2em;
 }
+
+/* /////////////////////////////////////////////////////////////////////// */
 
 html {
     font-size: 100%;
@@ -143,19 +150,7 @@ a:hover {
     text-decoration: none;
 }
 
-a[href="#content"] {
-    scale: 1;
-    font-size: 4rem;
-    text-decoration: none;
-    user-select: none;
-    transition: scale 400ms ease-in-out 0s;
-}
-
-a[href="#content"]:hover {
-    scale: 1.2;
-    transition: scale 200ms ease-in-out 0s;
-    cursor: pointer;
-}
+/* /////////////////////////////////////////////////////////////////////// */
 
 details summary {
     margin: 0;
@@ -201,7 +196,30 @@ body > footer > a:last-of-type {
     padding: 6em 0;
 }
 
-nav.appButtons {
+/* /////////////////////////////////////////////////////////////////////// */
+
+/* Start global nav */
+
+nav.global {
+    padding: 1em 0;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+nav.global figure.logo {
+    background-color: var(--lightgray-color);
+    background-color: transparent;
+    justify-content: flex-start;
+    width: fit-content;
+}
+
+nav.global figure.logo img {
+    height: 5em;
+    max-width: 200px;
+    mix-blend-mode: multiply;
+}
+
+nav.global div.buttons {
     margin: 0;
     padding: 0 .5em;
     width: fit-content;
@@ -217,7 +235,7 @@ nav.appButtons {
     border-bottom-left-radius: .25em;
 }
 
-nav.appButtons::before {
+nav.global div.buttons::before {
     visibility: hidden;
     opacity: 0;
     position: absolute;
@@ -231,7 +249,7 @@ nav.appButtons::before {
     transition: all 2s ease-in-out 0s;
 }
 
-nav.appButtons button {
+nav.global div.buttons button {
     outline: none;
     color: inherit;
     background: none;
@@ -242,42 +260,46 @@ nav.appButtons button {
     transition: all 500ms ease-in-out 0s;
 }
 
-nav.appButtons button:focus,
-nav.appButtons button:hover {
+nav.global div.buttons button:focus,
+nav.global div.buttons button:hover {
     outline: none;
     color: var(--ashaam-text-color);
 }
 
-nav.appButtons button#trigramForHeaven:focus {
+nav.global div.buttons button#trigramForHeaven:focus {
     outline: thin dashed var(--ashaam-text-color);
 }
 
-nav.appButtons:has(#trigramForHeaven:hover)::before,
-nav.appButtons:has(#trigramForHeaven:focus):focus-within::before {
+nav.global div.buttons:has(#trigramForHeaven:hover)::before,
+nav.global div.buttons:has(#trigramForHeaven:focus):focus-within::before {
     visibility: visible;
     content: "Menu";
     opacity: 1;
     transition: all 1s ease-in-out 100ms;
 }
 
-nav.appButtons button#trigramForHeaven:hover {
+nav.global div.buttons button#trigramForHeaven:hover {
     rotate: 90deg;
     transition: all 500ms ease-in-out 0s;
 }
 
-nav.appButtons:has(#refreshWindowButton:hover)::before,
-nav.appButtons:has(#refreshWindowButton:focus):focus-within::before {
+nav.global div.buttons:has(#refreshWindowButton:hover)::before,
+nav.global div.buttons:has(#refreshWindowButton:focus):focus-within::before {
     visibility: visible;
     content: "Reload";
     opacity: 1;
 }
 
-nav.appButtons button#refreshWindowButton:hover {
+nav.global div.buttons button#refreshWindowButton:hover {
     rotate: 360deg;
     transition: rotate 1s ease-in-out 0s;
 }
 
-/* start about.html */
+/* End global nav */
+
+/* /////////////////////////////////////////////////////////////////////// */
+
+/* Start about.html */
 
 figure.orthographic {
     margin: 1em 0;
@@ -294,13 +316,18 @@ figure.orthographic img {
     mix-blend-mode: multiply;
 }
 
-/* end about.html */
+/* End about.html */
 
 /* /////////////////////////////////////////////////////////////////////// */
 
-/* start index.html */
+/* Start index.html */
+
+/* body.index {
+    background-image: linear-gradient(180deg, black, transparent);
+} */
 
 body.index figure.easternMediterranean {
+    position: relative;
     outline: none;
     margin: 0;
     padding: 1.5em;
@@ -314,9 +341,9 @@ body.index figure.easternMediterranean {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("/assets/data/images/ISS-47_Middle_East.jpg");
+    background-image: url("/assets/images/ISS-47_Middle_East.jpg");
     border-radius: .25em;
-    border: 1em dotted var(--ashaam-text-color);
+    border: thin dashed var(--ashaam-text-color);
 }
 
 body.index figure.easternMediterranean img {
@@ -325,12 +352,65 @@ body.index figure.easternMediterranean img {
     mix-blend-mode: multiply;
 }
 
+body.index figure.easternMediterranean figcaption {
+    padding: .5em;
+    font-size: 1.5rem;
+    color: var(--primiry-text-color);
+    background-color: var(--lightgray-color-90);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+body.index figure.easternMediterranean figcaption a {
+    color: var(--ashaam-text-color);
+}
+
+div.placeholders {
+    display: none;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) {
+    list-style-image: url("/assets/images/marker-16px.png");
+    list-style-position: inside;
+    background-color: transparent;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li {
+    color: var(--lightgray-color);
+    background-color: var(--primiry-text-color);
+    width: fit-content;
+    padding: .25em;
+    border-radius: .25em;
+}
+
+div.placeholders :is(ul.waterways, ul.countries) li::marker {
+    width: 1em;
+    height: 1em;
+}
+
 body.index main p {
     margin: 0;
     padding: 1em 0;
 }
 
-/* end index.html */
+/* End index.html */
+
+/* /////////////////////////////////////////////////////////////////////// */
+
+a[href="#content"] {
+    scale: 1;
+    font-size: 4rem;
+    text-decoration: none;
+    user-select: none;
+    transition: scale 400ms ease-in-out 0s;
+}
+
+a[href="#content"]:hover {
+    scale: 1.2;
+    transition: scale 200ms ease-in-out 0s;
+    cursor: pointer;
+}
 
 section#activeEventsPanel {
     counter-reset: activeEvents;
@@ -432,6 +512,11 @@ menu.secondaryMenu h5 {
     margin: 0;
 }
 
+menu.secondaryMenu a {
+    color: var(--lightgray-color);
+    color: var(--primiry-text-color);
+}
+
 section.indexFooter {
     justify-content: space-between;
 }
@@ -440,18 +525,19 @@ pre {
     white-space: pre-wrap;
 }
 
+/* /////////////////////////////////////////////////////////////////////// */
+
 /* Start global footer */
 
 footer.global {
     margin: 1em 0;
-    width: 100%;
     gap: 1em;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: flex-end;
     font-size: 1rem;
 }
 
-footer.global :is(div.links, div.copyrights, div.display, div.external, ul.internal) {
+footer.global :is(div.links, div.copyrights, div.display, div.external, div.internal, ul.anotherMenu) {
     margin: 0;
     padding: 0;
     width: fit-content;
@@ -460,10 +546,11 @@ footer.global :is(div.links, div.copyrights, div.display, div.external, ul.inter
 }
 
 footer.global div.copyrights {
-    align-items: flex-end;
+    flex: 1 0 100%;
+    align-items: center;
 }
 
-footer.global ul.internal {
+footer.global ul.anotherMenu {
     list-style: none;
 }
 
@@ -478,13 +565,13 @@ section.badges h4 {
     text-align: center;
 }
 
-section.badges figure {
-    background-color: transparent;
+section.badges figure.app-store {
+    padding-top: .5em;
+    gap: .5em;
 }
 
-section.badges figure.app-store {
-    margin-top: 1em;
-    gap: 1em;
+section.badges figure {
+    background-color: transparent;
 }
 
 section.badges figcaption {
@@ -493,6 +580,10 @@ section.badges figcaption {
     font-size: small;
     font-weight: bold;
     max-width: 16em;
+}
+
+section.badges figure.app-store figcaption {
+    padding-top: .5em;
 }
 
 section.badges a {
@@ -506,7 +597,7 @@ section.badges figure img {
 
 section.badges figure.google-play img {
     width: 240px;
-    
+    width: 200px;
 }
 
 section.badges figure.app-store img {
@@ -515,6 +606,7 @@ section.badges figure.app-store img {
 
 div:has(select#displayLanguage) {
     cursor: pointer;
+    gap: .75em;
 }
 
 select#displayLanguage {
@@ -522,12 +614,25 @@ select#displayLanguage {
     outline: 0;
 }
 
+select#displayLanguage:focus {
+    border-color: var(--ashaam-text-color);
+    outline: thick solid var(--ashaam-text-color);
+}
+
 /* End global footer */
+
+/* /////////////////////////////////////////////////////////////////////// */
+
+/* Start form elements */
 
 label,
 select {
     cursor: inherit;
 }
+
+/* End form elements */
+
+/* /////////////////////////////////////////////////////////////////////// */
 
 @media all and (max-width: 1350px) {
     section#activeEventsPanel article.flexy {
