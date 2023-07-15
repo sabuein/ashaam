@@ -3,23 +3,25 @@
 ::after {
     margin: 0;
     padding: 0;
-    border: 0;
+    border-style: none;
+    border-width: thin;
+    border-color: currentColor;
     box-sizing: border-box;
     clear: both;
 }
 
 ::-webkit-scrollbar {
-    width: 1.5em;
-    height: 1.5em;
+    width: 2em;
+    height: 2em;
 }
 
 ::-webkit-scrollbar-button {
-    background-color: #3e4346;
+    background-color: var(--ashaam-text-color);
 }
 
 ::-webkit-scrollbar-thumb {
     height: 50px;
-    background-color: #242424;
+    background-color: #ffffff;
     border: 2px solid #3e4346;
 }
 
@@ -28,13 +30,16 @@
 }
 
 ::-webkit-scrollbar-track-piece {
-    background-color: #3e4346;
+    background-color: palevioletred;
 }
 
 :root[theme="light"] {
     --primiry-text-color: #333333;
     --primiry-bg-color: #c2c2c2;
+    --primiry-bg-color: whitesmoke;
     --ashaam-text-color: #ff0000;
+    --lightgray-color: #d9d9d9;
+    --lightgray-color-90: #d9d9d990;
 }
 
 :root[theme="dark"] {
@@ -72,6 +77,7 @@
 html {
     font-size: 100%;
     text-size-adjust: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -83,7 +89,7 @@ body {
     max-width: 1280px;
 }
 
-:is(header, main, section, div, details, table, footer) {
+:is(header, main, section, div, details, summary, table, footer) {
     margin-bottom: 1em;
     width: 100%;
 }
@@ -93,8 +99,7 @@ h1, h2, h3, h4, h5, h6, blockquote, q, p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin-top: .1em;
-    margin-bottom: .5em;
+    margin: 0;
 }
 
 h1 {
@@ -106,7 +111,11 @@ h1 {
 }
 
 main {
-    margin-bottom: 0;
+    margin-bottom: 1em;
+}
+
+main > header {
+    margin: 0;
 }
 
 figure {
@@ -134,12 +143,39 @@ a:hover {
     text-decoration: none;
 }
 
-summary {
+a[href="#content"] {
+    scale: 1;
+    font-size: 4rem;
+    text-decoration: none;
+    user-select: none;
+    transition: scale 400ms ease-in-out 0s;
+}
+
+a[href="#content"]:hover {
+    scale: 1.2;
+    transition: scale 200ms ease-in-out 0s;
     cursor: pointer;
 }
 
-menu {
-    width: 100%;
+details summary {
+    margin: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--ashaam-text-color);
+}
+
+details[open] summary,
+details[open] :is(p, table):last-of-type {
+    margin-bottom: .5em;
+    padding-bottom: 1em;
+    border-bottom: thick dotted var(--ashaam-text-color);
+}
+
+details p {
+    padding: .5em 0;
+    text-align: start;
+    font-size: 1.25rem;
 }
 
 th,
@@ -165,69 +201,173 @@ body > footer > a:last-of-type {
     padding: 6em 0;
 }
 
-div.appButtons {
-    padding: 0.25em;
-    width: unset;
+nav.appButtons {
+    margin: 0;
+    padding: 0 .5em;
+    width: fit-content;
     position: fixed;
     top: 0;
     right: 0;
-    background-color: #ffffff70;
+    color: var(--primiry-text-color);
+    background-color: var(--lightgray-color);
     align-content: flex-end;
     justify-content: flex-end;
-    gap: .5em;
     user-select: none;
     z-index: 999;
+    border-bottom-left-radius: .25em;
 }
 
-div.appButtons button {
+nav.appButtons::before {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 1em;
+    color: var(--primiry-text-color);
+    background-color: var(--lightgray-color-90);
+    padding: 0 .5em;
+    border-bottom-left-radius: .25em;
+    font-size: 3rem;
+    transition: all 2s ease-in-out 0s;
+}
+
+nav.appButtons button {
+    outline: none;
+    color: inherit;
     background: none;
-    font-size: 4rem;
+    font-size: 3rem;
     cursor: pointer;
     rotate: 0deg;
-    transition: rotate 1s ease-in-out 0s;
+    user-select: none;
+    transition: all 500ms ease-in-out 0s;
 }
 
-div.appButtons button#refreshWindowButton:hover {
+nav.appButtons button:focus,
+nav.appButtons button:hover {
+    outline: none;
+    color: var(--ashaam-text-color);
+}
+
+nav.appButtons button#trigramForHeaven:focus {
+    outline: thin dashed var(--ashaam-text-color);
+}
+
+nav.appButtons:has(#trigramForHeaven:hover)::before,
+nav.appButtons:has(#trigramForHeaven:focus):focus-within::before {
+    visibility: visible;
+    content: "Menu";
+    opacity: 1;
+    transition: all 1s ease-in-out 100ms;
+}
+
+nav.appButtons button#trigramForHeaven:hover {
+    rotate: 90deg;
+    transition: all 500ms ease-in-out 0s;
+}
+
+nav.appButtons:has(#refreshWindowButton:hover)::before,
+nav.appButtons:has(#refreshWindowButton:focus):focus-within::before {
+    visibility: visible;
+    content: "Reload";
+    opacity: 1;
+}
+
+nav.appButtons button#refreshWindowButton:hover {
     rotate: 360deg;
     transition: rotate 1s ease-in-out 0s;
 }
 
-div.appButtons button#trigramForHeaven:hover {
-    rotate: 90deg;
-    transition: rotate 500ms ease-in-out 0s;
+/* start about.html */
+
+figure.orthographic {
+    margin: 1em 0;
+    gap: .5em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*background-image: url("https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png");*/
 }
+
+figure.orthographic img {
+    width: 75dvw;
+    height: auto;
+    mix-blend-mode: multiply;
+}
+
+/* end about.html */
+
+/* /////////////////////////////////////////////////////////////////////// */
+
+/* start index.html */
+
+body.index figure.easternMediterranean {
+    outline: none;
+    margin: 0;
+    padding: 1.5em;
+    width: 100%;
+    height: 85dvh;
+    min-height: 25dvh;
+    gap: .5em;
+    background-color: var(--ashaam-text-color);
+    background-clip: padding-box;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/assets/data/images/ISS-47_Middle_East.jpg");
+    border-radius: .25em;
+    border: 1em dotted var(--ashaam-text-color);
+}
+
+body.index figure.easternMediterranean img {
+    max-width: 100%;
+    height: 100dvh;
+    mix-blend-mode: multiply;
+}
+
+body.index main p {
+    margin: 0;
+    padding: 1em 0;
+}
+
+/* end index.html */
 
 section#activeEventsPanel {
     counter-reset: activeEvents;
+    align-items: flex-start;
 }
 
 section#activeEventsPanel article.flexy {
     position: relative;
     padding: 1em;
     width: 21em;
-    border: thin solid #d9d9d9;
+    border-top-right-radius: .25em;
+    border-bottom-right-radius: .25em;
+    border: thin solid var(--lightgray-color-90);
     justify-content: flex-start;
+    background-color: seashell;
 }
 
 section#activeEventsPanel article.flexy::before {
     counter-increment: activeEvents;
-    padding: 0 .25em;
+    padding: 0 .15em;
     position: absolute;
     left: -.65em;
-    content: counter(activeEvents);
+    content: "#"counter(activeEvents);
     text-align: center;
     font-weight: 700;
     font-size: 1.5rem;
     color: var(--ashaam-text-color);
-    background-color: #d9d9d9;
+    background-color: var(--lightgray-color-90);
     border-top-left-radius: .25em;
     border-bottom-left-radius: .25em;
-    border: .1em solid currentColor;
+    border: thin none currentColor;
     user-select: none;
     /*border-radius: .25em;*/
 }
 
-section#activeEventsPanel h3 {
+section#activeEventsPanel article h3 {
+    padding-left: .35em;
     text-transform: uppercase;
 }
 
@@ -262,7 +402,6 @@ footer.mayBeInterested article {
 footer.mayBeInterested div {
     margin: 0;
     width: 15em;
-    align-items: flex-start;
     gap: .25em;
 }
 
@@ -283,7 +422,10 @@ ul.emailSocialCode li:first-child {
 }
 
 menu.secondaryMenu {
+    margin: 1em 0;
     list-style: none;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 menu.secondaryMenu h5 {
@@ -294,9 +436,97 @@ section.indexFooter {
     justify-content: space-between;
 }
 
-div.copyrights {
-    padding: 1em 0;
+pre {
+    white-space: pre-wrap;
+}
+
+/* Start global footer */
+
+footer.global {
+    margin: 1em 0;
+    width: 100%;
+    gap: 1em;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-size: 1rem;
+}
+
+footer.global :is(div.links, div.copyrights, div.display, div.external, ul.internal) {
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    align-items: flex-start;
     gap: .5em;
+}
+
+footer.global div.copyrights {
+    align-items: flex-end;
+}
+
+footer.global ul.internal {
+    list-style: none;
+}
+
+section.badges {
+    margin: 0;
+    padding: 0;
+    gap: 1em;
+    user-select: none;
+}
+
+section.badges h4 {
+    text-align: center;
+}
+
+section.badges figure {
+    background-color: transparent;
+}
+
+section.badges figure.app-store {
+    margin-top: 1em;
+    gap: 1em;
+}
+
+section.badges figcaption {
+    flex-grow: 0;
+    flex-shrink: 1;
+    font-size: small;
+    font-weight: bold;
+    max-width: 16em;
+}
+
+section.badges a {
+    cursor: not-allowed;
+}
+
+section.badges figure img {
+    mix-blend-mode: multiply;
+    height: auto;
+}
+
+section.badges figure.google-play img {
+    width: 240px;
+    
+}
+
+section.badges figure.app-store img {
+    width: 160px;
+}
+
+div:has(select#displayLanguage) {
+    cursor: pointer;
+}
+
+select#displayLanguage {
+    border: thin solid currentColor;
+    outline: 0;
+}
+
+/* End global footer */
+
+label,
+select {
+    cursor: inherit;
 }
 
 @media all and (max-width: 1350px) {
@@ -305,7 +535,7 @@ div.copyrights {
     }
 
     :is(header, main, section, div, footer) {
-        width: 95%;
+        width: 90%;
     }
 }
 
