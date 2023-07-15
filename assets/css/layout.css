@@ -400,6 +400,7 @@ div.placeholders :is(ul.waterways, ul.countries) li {
     padding: .25em;
     border: 0;
     box-shadow: .15em .1em midnightblue;
+    font-size: 1rem;
 }
 
 div.placeholders :is(ul.waterways, ul.countries) li:hover {
