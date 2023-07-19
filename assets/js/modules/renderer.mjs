@@ -27,7 +27,7 @@ const handleEventsResponse = (data) => {
 const renderEvent = (data, output) => {
     try {
         data.forEach(object => {
-    
+
             if (!!object.avatar) {
                 const figure = document.createElement("figure");
                 const figcaption = document.createElement("figcaption");
@@ -53,16 +53,16 @@ const renderEvent = (data, output) => {
                 endDateTime = null,
                 venue = null
             } = object;
-    
+
             const article = document.createElement("article");
             const header = document.createElement("header");
             const figcaption = document.createElement("figcaption");
             const img = document.createElement("img");
             const aside = document.createElement("aside");
             const footer = document.createElement("footer");
-    
+
             if (!status && status !== "active") return;// throw Error("The event is inactive.");
-    
+
             if (!!title) {
                 const h3 = document.createElement("h3");
                 h3.appendChild(document.createTextNode(title));
@@ -71,7 +71,7 @@ const renderEvent = (data, output) => {
                 img.setAttribute("title", title);
                 img.setAttribute("alt", `${title} cover photo`);
             }
-            
+
             if (!!coverPhoto) {
                 const figure = document.createElement("figure");
                 figure.appendChild(img);
@@ -79,9 +79,9 @@ const renderEvent = (data, output) => {
                 header.appendChild(figure);
                 img.setAttribute("src", coverPhoto);
             }
-    
+
             article.appendChild(header);
-    
+
             if (!!descriptionHTML) {
                 const details = document.createElement("details");
                 const summary = document.createElement("summary");
@@ -91,19 +91,19 @@ const renderEvent = (data, output) => {
                 article.appendChild(details);
                 details.setAttribute("class", "flexy gap-x1");
             }
-    
+
             if (!!startDateTime) {
                 const startDate = document.createElement("time");
                 startDate.appendChild(document.createTextNode(new Date(startDateTime).toUTCString()));
                 footer.appendChild(startDate);
             }
-            
+
             if (!!endDateTime) {
                 const endDate = document.createElement("time");
                 endDate.appendChild(document.createTextNode(new Date(endDateTime).toUTCString()));
                 footer.appendChild(endDate);
             }
-    
+
             if (!!venue) {
                 const ul = document.createElement("ul");
                 let x = ``;
@@ -116,18 +116,61 @@ const renderEvent = (data, output) => {
                 footer.appendChild(ul);
                 ul.setAttribute("class", "flexy gap-x1");
             }
-    
+
             aside.innerText = "Share: Facebook, Twitter, Instagram, Email";
             footer.appendChild(aside);
             article.appendChild(footer);
             article.setAttribute("class", "flexy");
             footer.setAttribute("class", "flexy gap-x1");
-            
+
             output.appendChild(article);
 
         });
     } catch (error) {
         console.error(error);
+    }
+};
+
+const useTemplate = () => {
+    let myArr = ["Audi", "BMW", "Ford", "Honda", "Jaguar", "Nissan"];
+    function showContent() {
+        let temp, item, a, i;
+        temp = document.getElementsByTagName("template")[0];
+        item = temp.content.querySelector("div");
+        for (i = 0; i < myArr.length; i++) {
+            a = document.importNode(item, true);
+            a.textContent += myArr[i];
+            document.body.appendChild(a);
+        }
+    }
+    // Test to see if the browser supports the HTML template element by checking
+    // for the presence of the template element's content attribute.
+    if ("content" in document.createElement("template")) {
+        // Instantiate the table with the existing HTML tbody
+        // and the row with the template
+        const tbody = document.querySelector("tbody");
+        const template = document.querySelector("#productrow");
+
+        // Clone the new row and insert it into the table
+        const clone = template.content.cloneNode(true);
+        const secondClone = template.content.firstElementChild.cloneNode(true);
+        let td = clone.querySelectorAll("td");
+        td[0].textContent = "1235646565";
+        td[1].textContent = "Stuff";
+
+        tbody.appendChild(clone);
+
+        // Clone the new row and insert it into the table
+        const clone2 = template.content.cloneNode(true);
+        td = clone2.querySelectorAll("td");
+        td[0].textContent = "0384928528";
+        td[1].textContent = "Acme Kidney Beans 2";
+
+        tbody.appendChild(clone2);
+    } else {
+        // Find another way to add the rows to the table because
+        // the HTML template element is not supported.
+        alert("Your browser does not support template element!");
     }
 };
 

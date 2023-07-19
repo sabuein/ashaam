@@ -54,6 +54,71 @@ const readJSONFile = async (url) => {
     }
 };
 
+function checkForm(form) {
+    // validation fails if the input is blank
+    if (form.inputfield.value == "") {
+        alert("Error: Input is empty!");
+        form.inputfield.focus();
+        return false;
+    }
+
+    // regular expression to match only alphanumeric characters and spaces
+    var re = /^[\w ]+$/;
+
+    // validation fails if the input doesn't match our regular expression
+    if (!re.test(form.inputfield.value)) {
+        alert("Error: Input contains invalid characters!");
+        form.inputfield.focus();
+        return false;
+    }
+
+    const input = document.querySelector('#input');
+    input.addEventListener('change', (e) => {
+        const isValid = e.target.checkValidity();
+        e.target.setAttribute('aria-invalid', !isValid);
+        inputs.forEach((input) => {
+            const errorElement = document.createElement('span');
+            errorElement.id = `${input.id}-error`;
+            input.setAttribute('aria-describedby', errorElement.id);
+            input.insertAdjacentElement(errorElement);
+        });
+        input.addEventListener('change', (e) => {
+            const isInvalid = !e.target.checkValidity();
+            e.target.setAttribute('aria-invalid', isInvalid);
+            if (isInvalid) {
+                const errorMessage = e.target.validationMessage;
+                errorElement.textContent = errorMessage;
+            }
+        });
+        input.addEventListener('change', (e) => {
+            // Don't keep the user locked in place if we previously validated the input
+            const wasValidated = e.target.getAttribute('aria-invalid') === 'true';
+            if (wasValidated) {
+                return;
+            }
+            const errorMessage = e.target.validationMessage;
+            e.target.setAttribute('aria-invalid', !!errorMessage);
+            if (errorMessage) {
+                // Update error label visually
+                errorElement.textContent = errorMessage;
+                // Focus the invalid input so its error is narrated
+                e.target.focus();
+            }
+        });
+        // Listen for the input event now so we fire this on every keystroke
+        input.addEventListener('input', (e) => {
+            if (errorElement.textContent) {
+                e.target.removeAttribute('aria-invalid');
+                errorElement.textContent = '';
+            }
+        });
+
+        console.log(isValid);
+    });
+
+    // validation was successful
+    return true;
+}
 export {
     fetchAsJSON,
     fetchAsJSONP,
