@@ -23,41 +23,50 @@
             <a href="./index.html" title="Homepage"><img alt="Ashaam logo by Hamza AbuAyyash" title="Ashaam Homepage" src="./assets/images/ashaam-logo-200px.png" /></a>
         </figure>
         <menu class="secondaryMenu flexy row gap-x1">
-            <li><a href="./gazette.html" target="_top" title="Ashaam Gazette">Ashaam Gazette</a></li>
+            <li><a href="./echo.html" target="_top" title="Ashaam Echo">Ashaam Echo</a></li>
             <li><a href="./shop.html" target="_top" title="Ashaam Shop">Ashaam Shop</a></li>
             <li><a href="./events.html" target="_top" title="Events and exhibitions">Events and exhibitions</a></li>
         </menu>
         <div class="buttons flexy">
             <button type="button" id="refreshWindowButton" title="Reload this page">&#10227;</button>
             <button type="button" id="trigramForHeaven" title="Menu">&#x2630;</button>
+            <button type="button" id="goUp" title="Go up">&#128316;</button>
+            <button type="button" id="goDown" title="Go down">&#128317;</button>
         </div>
+        <form class="flexy">
+            <input type="search" name="search" id="appSearch" />
+            <input type="submit" value="Search" />
+        </form>
     </nav>
     <figure class="easternMediterranean flexy" title="Ashaam aka Levant aka Eastern Mediterranean">
         <img alt="An aerial view of the Eastern Mediterranean" title="Ashaam aka Levant aka Eastern Mediterranean" src="./assets/images/ISS-47_Middle_East.jpg" />
         <figcaption>Image&colon; &quot;An aerial view of the <a href="https://en.wikipedia.org/wiki/Eastern_Mediterranean" target="_blank" title="Eastern Mediterranean - Wikipedia">Eastern Mediterranean</a>&quot; by NASA Johnson&period; Source&colon; <a href="https://www.flickr.com/photos/nasa2explore/26380972471/" target="_blank" title="ISS047e057822 (04/14/2016)">Flickr</a>&period;</figcaption>
-        <div class="placeholders">
-            <ul class="waterways">
-                <li data-slug="mediterranean"><a href="https://en.wikipedia.org/wiki/Mediterranean_Sea" target="_top" title="Mediterranean Sea - Wikipedia">Mediterranean Sea</a></li>
-                <li data-slug="red"><a href="https://en.wikipedia.org/wiki/Red_Sea" target="_top" title="Red Sea - Wikipedia">Red Sea</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Dead_Sea" target="_top" title="Dead Sea - Wikipedia">Dead Sea</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Nile" target="_top" title="Nile - Wikipedia">Nile River</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Jordan_River" target="_top" title="Jordan River - Wikipedia">Jordan River</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Sea_of_Galilee" target="_top" title="Sea of Galilee - Wikipedia">Lake Tiberias</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Gulf_of_Suez" target="_top" title="Gulf of Suez - Wikipedia">Gulf of Suez</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Gulf_of_Aqaba" target="_top" title="Gulf of Aqaba - Wikipedia">Gulf of Aqaba</a></li>
-            </ul>
-            <ul class="countries">
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Turkey" target="_top" title="Turkey - Wikipedia">Republic of Türkiye</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Syria" target="_top" title="Syria - Wikipedia">Syrian Arab Republic</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Lebanon" target="_top" title="Lebanon - Wikipedia">Republic of Lebanon</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/State_of_Palestine" target="_top" title="State of Palestine - Wikipedia">Occupied Palestine</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Jordan" target="_top" title="Jordan - Wikipedia">Hashemite Kingdom of Jordan (HKJ)</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Egypt" target="_top" title="Egypt - Wikipedia">Arab Republic of Egypt</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Saudi_Arabia" target="_top" title="Saudi Arabia - Wikipedia">Kingdom of Saudi Arabia (KSA)</a></li>
-                <li data-slug=""><a href="https://en.wikipedia.org/wiki/Cyprus" target="_top" title="Cyprus - Wikipedia">Republic of Cyprus</a></li>
-            </ul>
-        </div>
+        <template id="mapData">
+            <div class="placeholders">
+                <ul class="waterways">
+                    <li data-slug="mediterranean"><a href="https://en.wikipedia.org/wiki/Mediterranean_Sea" target="_top" title="Mediterranean Sea - Wikipedia">Mediterranean Sea</a></li>
+                    <li data-slug="red"><a href="https://en.wikipedia.org/wiki/Red_Sea" target="_top" title="Red Sea - Wikipedia">Red Sea</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Dead_Sea" target="_top" title="Dead Sea - Wikipedia">Dead Sea</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Nile" target="_top" title="Nile - Wikipedia">Nile River</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Jordan_River" target="_top" title="Jordan River - Wikipedia">Jordan River</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Sea_of_Galilee" target="_top" title="Sea of Galilee - Wikipedia">Lake Tiberias</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Gulf_of_Suez" target="_top" title="Gulf of Suez - Wikipedia">Gulf of Suez</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Gulf_of_Aqaba" target="_top" title="Gulf of Aqaba - Wikipedia">Gulf of Aqaba</a></li>
+                </ul>
+                <ul class="countries">
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Turkey" target="_top" title="Turkey - Wikipedia">Republic of Türkiye</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Syria" target="_top" title="Syria - Wikipedia">Syrian Arab Republic</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Lebanon" target="_top" title="Lebanon - Wikipedia">Republic of Lebanon</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/State_of_Palestine" target="_top" title="State of Palestine - Wikipedia">Occupied Palestine</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Jordan" target="_top" title="Jordan - Wikipedia">Hashemite Kingdom of Jordan (HKJ)</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Egypt" target="_top" title="Egypt - Wikipedia">Arab Republic of Egypt</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Saudi_Arabia" target="_top" title="Saudi Arabia - Wikipedia">Kingdom of Saudi Arabia (KSA)</a></li>
+                    <li data-slug=""><a href="https://en.wikipedia.org/wiki/Cyprus" target="_top" title="Cyprus - Wikipedia">Republic of Cyprus</a></li>
+                </ul>
+            </div>
+        </template>
     </figure>
+    <p>I will display &#128204;</p>
     <header>
         <h1>Ashaam</h1>
         <h2>Connecting people in the UK with people in the Levant</h2>
@@ -80,12 +89,12 @@
         </article>
     </section>
     <footer class="global flexy row">
-        <div class="gotop flexy"><a href="#content" title="Back to main content">&UpArrowBar;</a></div>
+        <div class="gotop flexy"><a href="#content" title="Back to main content">&#128285;</a></div>
         <div class="copyrights flexy">
             <p>Managed with &hearts; from occupied Ramallah and free London&comma;</p>
             <p>&copy; <time>2023</time> Salaheddin AbuEin&period;</p>
         </div>
-        <div class="links flexy ">
+        <div class="links flexy">
             <div class="external flexy">
                 <h5>Email updates, social media, and code&colon;</h5>
                 <ul class="emailSocialCode flexy row">
@@ -101,13 +110,13 @@
             <div class="internal flexy">
                 <h5>Another menu&colon;</h5>
                 <ul class="anotherMenu flexy row">
-                    <li><a href="./index.html" target="_top" title="Homepage">Homepage</a></li>
-                    <li><a href="./about.html" target="_top" title="About">About</a></li>
-                    <li><a href="./account.html" target="_top" title="Account">Account</a></li>
-                    <li><a href="./contact.html" target="_top" title="Contact">Contact</a></li>
-                    <li><a href="./privacy.html" target="_top" title="Privacy">Privacy</a></li>
-                    <li><a href="./terms.html" target="_top" title="Terms">Terms</a></li>
-                    <li><a href="./rss.html" target="_top" title="RSS feeds">RSS feeds</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./index.html" target="_top" title="Homepage">Homepage</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./about.html" target="_top" title="About">About</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./account.html" target="_top" title="Account">Account</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./contact.html" target="_top" title="Contact">Contact</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./privacy.html" target="_top" title="Privacy">Privacy</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./terms.html" target="_top" title="Terms">Terms</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./rss.html" target="_top" title="RSS feeds">RSS feeds</a></li>
                 </ul>
             </div>
         </div>
@@ -117,6 +126,11 @@
                 <option hreflang="ar" rel="alternate" value="/ar/">العربية</option>
                 <option hreflang="en_uk" rel="alternate" value="/en_uk/" selected>English (United Kingdom)</option>
             </select>
+        </div>
+        <div class="cookies flexy row">
+            <p>This site uses cookies to deliver and enhance the quality of its services and to analyze traffic&period;</p>
+            <button>Learn more</button>
+            <button>OK, got it</button>
         </div>
     </footer>
 </body>
