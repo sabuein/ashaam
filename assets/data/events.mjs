@@ -26,6 +26,19 @@ const newAddress = (address) => {
     }
 };
 
+const newVenue = (venue) => {
+    try {
+        const {
+            name = null,
+            address = null,
+            phone = null
+        } = venue;
+        return (new Venue({ name, address, phone }) || null);
+    } catch (error) {
+        console.error(error);        
+    }
+};
+
 const newOrganizer = (organizer) => {
     try {
         const {
@@ -57,7 +70,7 @@ const newEvent = (address = null, venue = null, organizer = null, event = null )
             elevation: "17z"
         });
 
-        const venueX = new Venue({
+        const venueX = newVenue({
             name: "Phoenix Community Centre",
             address: addressX,
             phone: "020-8771-6023"
