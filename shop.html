@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" theme="light">
+<head>
+    <title>Ashaam Shop</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <script type="importmap">
+        {
+            "imports": {
+                "data": "./assets/js/modules/data.mjs",
+                "objects": "./assets/js/modules/objects.mjs",
+                "renderer": "./assets/js/modules/renderer.mjs"
+            }
+        }
+    </script>
+    <script type="module" src="./assets/js/application.mjs"></script>
+</head>
+<body class="shop flexy">
+    <nav class="global flexy row">
+        <figure class="logo flexy row">
+            <a href="./index.html" title="Homepage"><img alt="Ashaam logo by Hamza AbuAyyash" title="Ashaam Homepage" src="./assets/images/ashaam-logo-200px.png" /></a>
+        </figure>
+        <menu class="secondaryMenu flexy row gap-x1">
+            <li><a href="./echo.html" target="_top" title="Ashaam Echo">Echo</a></li>
+            <li><a href="./shop.html" target="_top" title="Ashaam Shop">Shop</a></li>
+            <li><a href="./events.html" target="_top" title="Events and exhibitions">Events and exhibitions</a></li>
+        </menu>
+        <div class="buttons flexy">
+            <button type="button" id="refreshWindowButton" title="Reload this page">&#10227;</button>
+            <button type="button" id="trigramForHeaven" title="Menu">&#x2630;</button>
+            <button type="button" id="goUp" title="Go up">&#128316;</button>
+            <button type="button" id="goDown" title="Go down">&#128317;</button>
+        </div>
+        <form class="flexy">
+            <input type="search" name="q" id="appSearch" placeholder="Search&hellip;" />
+            <input type="submit" value="Search" />
+        </form>
+    </nav>
+    <main id="content" class="flexy">
+        <header>
+            <h1>Ashaam Shop</h1>
+        </header>
+        <h2>We Apologize for the Inconvenience</h2>
+        <p>Thank you for dropping by! We want to be fully transparent with you. The page you are trying to access is currently undergoing some exciting enhancements to provide you with the best possible experience. We truly appreciate your understanding and patience during this construction phase.</p>
+        <p>Your satisfaction is our top priority, and we can't wait to unveil the final product to you.</p>
+        <p>If you have any questions or need further assistance, don't hesitate to <a href="./contact.html">reach out</a> to our friendly support team.</p>
+    </main>
+    <footer class="global flexy row">
+        <div class="gotop flexy"><a href="#content" title="Back to main content">&#128285;</a></div>
+        <div class="copyrights flexy">
+            <p>Managed with &hearts; from occupied Ramallah and free London&comma;</p>
+            <p>&copy; <time>2023</time> Salaheddin AbuEin&period;</p>
+        </div>
+        <div class="links flexy">
+            <div class="external flexy">
+                <h5>Email updates, social media, and code&colon;</h5>
+                <ul class="emailSocialCode flexy row">
+                    <li><a href="./subscriptions.html" title="Subscribe to email updates">Subscribe</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">Twitter</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">Facebook</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">YouTube</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">Instagram</a></li>
+                    <li><a href="https://github.com/sabuein/ashaam" title="sabuein/ashaam: A way to connect Falastin and Britannia" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+            <div class="internal flexy">
+                <h5>Another menu&colon;</h5>
+                <ul class="anotherMenu flexy row">
+                    <li><span class="anchor">&#128279;</span><a href="./index.html" target="_top" title="Homepage">Homepage</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./about.html" target="_top" title="About">About</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./account.html" target="_top" title="Account">Account</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./contact.html" target="_top" title="Contact">Contact</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./privacy.html" target="_top" title="Privacy">Privacy</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./terms.html" target="_top" title="Terms">Terms</a></li>
+                    <li><span class="anchor">&#128279;</span><a href="./rss.html" target="_top" title="RSS feeds">RSS feeds</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="display flexy row">
+            <label for="displayLanguage">Display language&colon;</label>
+            <select name="language" id="displayLanguage">
+                <option hreflang="ar" rel="alternate" value="/ar/">العربية</option>
+                <option hreflang="en_uk" rel="alternate" value="/en_uk/" selected>English (United Kingdom)</option>
+            </select>
+        </div>
+        <div class="cookies flexy row">
+            <p>This site uses cookies to deliver and enhance the quality of its services and to analyze traffic&period;</p>
+            <button>Learn more</button>
+            <button>OK, got it</button>
+        </div>
+    </footer>
+</body>
+</html>
