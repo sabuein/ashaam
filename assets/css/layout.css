@@ -242,6 +242,7 @@ nav.global figure.logo img {
 nav.global div.buttons {
     margin: 0;
     padding: 0 .5em;
+    padding-bottom: .5em;
     width: fit-content;
     position: fixed;
     top: 0;
@@ -495,6 +496,17 @@ body.index main p {
 
 /* /////////////////////////////////////////////////////////////////////// */
 
+/* Start main section */
+
+main#content {
+    align-items: flex-start;
+    gap: 1em;
+}
+
+/* End main section */
+
+/* /////////////////////////////////////////////////////////////////////// */
+
 a[href="#content"] {
     scale: 1;
     font-size: 2.25rem;
@@ -512,6 +524,8 @@ a[href="#content"]:hover {
 section#activeEventsPanel {
     counter-reset: activeEvents;
     align-items: flex-start;
+    flex-direction: row;
+    gap: 2em;
 }
 
 section#activeEventsPanel article.flexy {
@@ -546,6 +560,10 @@ section#activeEventsPanel article.flexy::before {
 section#activeEventsPanel article h3 {
     padding-left: .35em;
     text-transform: uppercase;
+}
+
+section#inactiveEventsPanel {
+
 }
 
 footer.mayBeInterested {
@@ -780,17 +798,21 @@ input:focus:invalid {
 
 @media all and (max-width: 1350px) {
     section#activeEventsPanel article.flexy {
-        width: 30em;
+        width: 28em;
     }
 
     :is(header, main, section, div, footer) {
-        width: 90%;
+        width: 92%;
     }
 }
 
 @media all and (max-width: 1250px) {
     section#activeEventsPanel article.flexy {
-        width: 24em;
+        width: 25em;
+    }
+
+    :is(header, main, section, div, footer) {
+        width: 95%;
     }
 }
 
@@ -804,8 +826,8 @@ input:focus:invalid {
     }
 }
 
-@media all and (max-width: 1015px) {
+/*@media all and (max-width: 1015px) {
     section#activeEventsPanel article.flexy {
         width: 45em;
     }
-}
+}*/
