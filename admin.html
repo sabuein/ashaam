@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" theme="light">
 <head>
-    <title>Ashaam &dash; System administrator</title>
+    <title>Ashaam system administrator</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,58 +18,85 @@
     <script type="module" src="./assets/js/application.mjs"></script>
 </head>
 <body class="admin flexy">
-    <form action="./" method="post" id="adminActions" style="width: 75%; padding: 2em 0;">
-        <details>
-            <summary>New event</summary>
-            <fieldset class="flexy">
-                <legend>New event&colon;</legend>
-                <details class="flexy">
-                    <summary>Address</summary>
-                    <label for="line1">Line 1&colon;<input type="text" name="line1" id="line1" placeholder="66 Westow Street" /></label>
-                    <label for="line2">Line 2&colon;<input type="text" name="line2" id="line2" placeholder="The Nightingale House" /></label>
-                    <label for="town">Town&colon;<input type="text" name="town" id="town" placeholder="London" /></label>
-                    <label for="county">County&colon;<input type="text" name="county" id="county" placeholder="Greater London" /></label>
-                    <label for="postcode">Postcode&colon;<input type="text" name="postcode" id="postcode" placeholder="SE19 3AF" /></label>
-                    <label for="latitude">Latitude&colon;<input type="number" name="latitude" id="latitude" placeholder="51.4174447" /></label>
-                    <label for="longitude">Longitude&colon;<input type="number" name="longitude" id="longitude" placeholder="-0.0845448" /></label>
-                    <label for="elevation">Elevation&colon;<input type="text" name="elevation" id="elevation" placeholder="17z" /></label>
+    <nav class="global flexy row">
+        <figure class="logo flexy row">
+            <a href="./index.html" title="Homepage"><img alt="Ashaam logo by Hamza AbuAyyash" title="Ashaam homepage" src="./assets/images/ashaam-logo-200px.png" /></a>
+        </figure>
+        <menu class="secondaryMenu flexy row gap-x1">
+            <li><a href="./echo.html" target="_top" title="Ashaam Echo">Echo</a></li>
+            <li><a href="./shop.html" target="_top" title="Ashaam Shop">Shop</a></li>
+            <li><a href="./events.html" target="_top" title="Events and exhibitions">Events and exhibitions</a></li>
+        </menu>
+        <div class="buttons flexy">
+            <button type="button" id="refreshWindowButton" title="Reload this page">&#10227;</button>
+            <button type="button" id="trigramForHeaven" title="Menu">&#x2630;</button>
+            <button type="button" id="goUp" title="Go up">&#128316;</button>
+            <button type="button" id="goDown" title="Go down">&#128317;</button>
+        </div>
+        <form class="flexy">
+            <input type="search" name="q" id="appSearch" placeholder="Search&hellip;" />
+            <input type="submit" value="Search" />
+        </form>
+    </nav>
+    <main id="content" class="flexy">
+        <header>
+            <h1>Ashaam system administrator</h1>
+        </header>
+        <section>
+            <form action="./" method="post" id="adminActions" style="width: 75%; padding: 2em 0;">
+                <details>
+                    <summary>New event</summary>
+                    <fieldset class="flexy">
+                        <legend>New event&colon;</legend>
+                        <details class="flexy">
+                            <summary>Address</summary>
+                            <label for="line1">Line 1&colon;<input type="text" name="line1" id="line1" placeholder="66 Westow Street" /></label>
+                            <label for="line2">Line 2&colon;<input type="text" name="line2" id="line2" placeholder="The Nightingale House" /></label>
+                            <label for="town">Town&colon;<input type="text" name="town" id="town" placeholder="London" /></label>
+                            <label for="county">County&colon;<input type="text" name="county" id="county" placeholder="Greater London" /></label>
+                            <label for="postcode">Postcode&colon;<input type="text" name="postcode" id="postcode" placeholder="SE19 3AF" /></label>
+                            <label for="latitude">Latitude&colon;<input type="number" name="latitude" id="latitude" placeholder="51.4174447" /></label>
+                            <label for="longitude">Longitude&colon;<input type="number" name="longitude" id="longitude" placeholder="-0.0845448" /></label>
+                            <label for="elevation">Elevation&colon;<input type="text" name="elevation" id="elevation" placeholder="17z" /></label>
+                        </details>
+                        <details class="flexy">
+                            <summary>Venue</summary>
+                            <label for="venueName">Name&colon;</label><input type="text" name="venueName" id="venueName" placeholder="Phoenix Community Centre" />
+                            <label for="venuePhone">Phone&colon;</label><input type="tel" name="venuePhone" id="venuePhone" placeholder="020-8771-6023" />
+                        </details>
+                        <details class="flexy">
+                            <summary>Organizer</summary>
+                            <label for="organizerName">Name&colon;<input type="text" name="organizerName" id="organizerName" placeholder="Crystal Palace Friends of Palestine (CPFP)" /></label>
+                            <label for="organizerEmail">Email&colon;<input type="email" name="organizerEmail" id="organizerEmail" placeholder="crystalpalestinegroup@gmail.com" /></label>
+                            <label for="organizerBio">Bio&colon;<textarea name="organizerBio" id="organizerBio" placeholder="Crystal Palace Friends of Palestine (CPFP) was established to inform, educate and raise awareness about the Palestinian struggle in Crystal Palace, Penge and the surrounding areas. CPFP aims to inspire the local community to raise their voices against the occupation of Palestine by the apartheid, settler colonial State of Israel."></textarea></label>
+                            <label for="organizerFacebook">Facebook&colon;<input type="url" name="organizerFacebook" id="organizerFacebook" placeholder="https://www.facebook.com/groups/460727482378669" /></label>
+                            <label for="organizerInstagram">Instagram&colon;<input type="url" name="organizerInstagram" id="organizerInstagram" placeholder="https://www.instagram.com/cppalfriends/" /></label>
+                            <label for="organizerWebsite">Website&colon;<input type="url" name="organizerWebsite" id="organizerWebsite" placeholder="https://www.crystalpalacefriendsofpalestine.org/" /></label>
+                            <label for="organizerLogoURL">Logo URL&colon;<input type="url" name="organizerLogoURL" id="organizerLogoURL" placeholder="./assets/data/images/crystalpalacefriendsofpalestine-logo.png" /></label>
+                            <label for="organizerLogo">Logo&colon;<input type="file" name="organizerLogo" id="organizerLogo" /></label>
+                        </details>
+                        <details class="flexy" open>
+                            <summary>Details</summary>
+                            <label for="eventTitle">Title&colon;<input type="text" name="eventTitle" id="eventTitle" placeholder="Palestine at the Palace" /></label>
+                            <label for="descriptionHTML">Description HTML&colon;<textarea name="descriptionHTML" id="descriptionHTML" placeholder="&lt;p&gt;&quot;Palestine at the Palace&quot; is an art and cultural event showcasing the talents and traditions of Palestine&period; The event features a diverse range of activities including art exhibitions, crafts, music, and food. It is scheduled to take place on Saturday, 2nd September 2023, from 11:00 am to 4:00 pm.&lt;/p&gt;&lt;p&gt;The event highlights the works of award-winning Palestinian artists through an exhibition, providing an opportunity to appreciate and purchase original artwork and prints. In addition to visual art, the event also showcases ceramics, embroidery, and homeware, displaying the traditional craftsmanship of Palestine.&lt;/p&gt;&lt;p&gt;Attendees can explore fair trade Palestinian produce, offering a variety of food and culinary delights that represent Palestinian cuisine. The event also includes a selection of unique jewelry items for those interested in adornments.&lt;/p&gt;&lt;p&gt;To enhance the cultural experience, live music performances are scheduled, featuring Palestinian musicians and creating an immersive atmosphere. Additionally, participants can engage in a raffle, providing an opportunity to win prizes and further support the event.&lt;/p&gt;&lt;p&gt;Overall, &quot;Palestine at the Palace&quot; aims to celebrate the rich art, crafts, music, and culinary traditions of Palestine while supporting Palestinian artists, artisans, and fair trade practices.&lt;/p&gt;"></textarea></label>
+                            <label for="startDateTime">Start date&colon;<input type="date" name="startDateTime" id="startDateTime" placeholder="2023-09-02T11:00:00Z" /></label>
+                            <label for="endDateTime">End date&colon;<input type="date" name="endDateTime" id="endDateTime" placeholder="2023-09-02T16:00:00Z" /></label>
+                            <label for="eventCost">Cost&colon;<input type="text" name="eventCost" id="eventCost" placeholder="Children FREE, Adults £3" /></label>
+                            <label for="eventCoverPhotoURL">Cover photo URL&colon;<input type="url" name="eventCoverPhotoURL" id="eventCoverPhotoURL" placeholder="./assets/data/images/crystalpalacefriendsofpalestine-20230902.png" /></label>
+                            <label for="eventCoverPhoto">Cover photo&colon;<input type="file" name="eventCoverPhoto" id="eventCoverPhoto" /></label>
+                            <label for="eventStatus">Status&colon;<select name="eventStatus" id="eventStatus">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select></label>
+                        </details>
+                        <div class="flexy row gap-x1">
+                            <input type="reset" value="Reset" />
+                            <input type="submit" value="Add" />
+                        </div>
+                    </fieldset>
                 </details>
-                <details class="flexy">
-                    <summary>Venue</summary>
-                    <label for="venueName">Name&colon;</label><input type="text" name="venueName" id="venueName" placeholder="Phoenix Community Centre" />
-                    <label for="venuePhone">Phone&colon;</label><input type="tel" name="venuePhone" id="venuePhone" placeholder="020-8771-6023" />
-                </details>
-                <details class="flexy">
-                    <summary>Organizer</summary>
-                    <label for="organizerName">Name&colon;<input type="text" name="organizerName" id="organizerName" placeholder="Crystal Palace Friends of Palestine (CPFP)" /></label>
-                    <label for="organizerEmail">Email&colon;<input type="email" name="organizerEmail" id="organizerEmail" placeholder="crystalpalestinegroup@gmail.com" /></label>
-                    <label for="organizerBio">Bio&colon;<textarea name="organizerBio" id="organizerBio" placeholder="Crystal Palace Friends of Palestine (CPFP) was established to inform, educate and raise awareness about the Palestinian struggle in Crystal Palace, Penge and the surrounding areas. CPFP aims to inspire the local community to raise their voices against the occupation of Palestine by the apartheid, settler colonial State of Israel."></textarea></label>
-                    <label for="organizerFacebook">Facebook&colon;<input type="url" name="organizerFacebook" id="organizerFacebook" placeholder="https://www.facebook.com/groups/460727482378669" /></label>
-                    <label for="organizerInstagram">Instagram&colon;<input type="url" name="organizerInstagram" id="organizerInstagram" placeholder="https://www.instagram.com/cppalfriends/" /></label>
-                    <label for="organizerWebsite">Website&colon;<input type="url" name="organizerWebsite" id="organizerWebsite" placeholder="https://www.crystalpalacefriendsofpalestine.org/" /></label>
-                    <label for="organizerLogoURL">Logo URL&colon;<input type="url" name="organizerLogoURL" id="organizerLogoURL" placeholder="./assets/data/images/crystalpalacefriendsofpalestine-logo.png" /></label>
-                    <label for="organizerLogo">Logo&colon;<input type="file" name="organizerLogo" id="organizerLogo" /></label>
-                </details>
-                <details class="flexy" open>
-                    <summary>Details</summary>
-                    <label for="eventTitle">Title&colon;<input type="text" name="eventTitle" id="eventTitle" placeholder="Palestine at the Palace" /></label>
-                    <label for="descriptionHTML">Description HTML&colon;<textarea name="descriptionHTML" id="descriptionHTML" placeholder="&lt;p&gt;&quot;Palestine at the Palace&quot; is an art and cultural event showcasing the talents and traditions of Palestine&period; The event features a diverse range of activities including art exhibitions, crafts, music, and food. It is scheduled to take place on Saturday, 2nd September 2023, from 11:00 am to 4:00 pm.&lt;/p&gt;&lt;p&gt;The event highlights the works of award-winning Palestinian artists through an exhibition, providing an opportunity to appreciate and purchase original artwork and prints. In addition to visual art, the event also showcases ceramics, embroidery, and homeware, displaying the traditional craftsmanship of Palestine.&lt;/p&gt;&lt;p&gt;Attendees can explore fair trade Palestinian produce, offering a variety of food and culinary delights that represent Palestinian cuisine. The event also includes a selection of unique jewelry items for those interested in adornments.&lt;/p&gt;&lt;p&gt;To enhance the cultural experience, live music performances are scheduled, featuring Palestinian musicians and creating an immersive atmosphere. Additionally, participants can engage in a raffle, providing an opportunity to win prizes and further support the event.&lt;/p&gt;&lt;p&gt;Overall, &quot;Palestine at the Palace&quot; aims to celebrate the rich art, crafts, music, and culinary traditions of Palestine while supporting Palestinian artists, artisans, and fair trade practices.&lt;/p&gt;"></textarea></label>
-                    <label for="startDateTime">Start date&colon;<input type="date" name="startDateTime" id="startDateTime" placeholder="2023-09-02T11:00:00Z" /></label>
-                    <label for="endDateTime">End date&colon;<input type="date" name="endDateTime" id="endDateTime" placeholder="2023-09-02T16:00:00Z" /></label>
-                    <label for="eventCost">Cost&colon;<input type="text" name="eventCost" id="eventCost" placeholder="Children FREE, Adults £3" /></label>
-                    <label for="eventCoverPhotoURL">Cover photo URL&colon;<input type="url" name="eventCoverPhotoURL" id="eventCoverPhotoURL" placeholder="./assets/data/images/crystalpalacefriendsofpalestine-20230902.png" /></label>
-                    <label for="eventCoverPhoto">Cover photo&colon;<input type="file" name="eventCoverPhoto" id="eventCoverPhoto" /></label>
-                    <label for="eventStatus">Status&colon;<select name="eventStatus" id="eventStatus">
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                    </select></label>
-                </details>
-                <div class="flexy row gap-x1">
-                    <input type="reset" value="Reset" />
-                    <input type="submit" value="Add" />
-                </div>
-            </fieldset>
-        </details>
-    </form>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
