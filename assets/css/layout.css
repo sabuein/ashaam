@@ -48,6 +48,14 @@
     --lightgray-color: #d9d9d9;
     --lightgray-color-50: #d9d9d950;
     --lightgray-color-90: #d9d9d990;
+    /* Some colors */
+    --color-cancel: #e51668;
+    --color-reset: #586575;
+    --color-cloud: #12b0df;
+    --color-cancel-light: #e5166895;
+    --color-reset-light: #58657595;
+    --color-cloud-light: #12b0df95;
+
 }
 
 :root[theme="dark"] {
@@ -94,6 +102,7 @@ html {
 
 body {
     margin: 0 auto;
+    padding: .5em;
     color: var(--primiry-text-color);
     background-color: var(--primiry-bg-color);
     font-size: 18px;
@@ -776,7 +785,7 @@ input:valid {
 
 input[type="text"],
 input[type="email"],
-input[type="number"],
+input[type="tel"],
 textarea,
 fieldset {
     width: 100%;
@@ -831,3 +840,159 @@ input:focus:invalid {
         width: 45em;
     }
 }*/
+
+section.cta.flexy.row,
+dialog#newEventDialog div.cta {
+    gap: 1em;
+}
+
+dialog#newEventDialog input:is([type="reset"], [type="button"], [type="submit"]),
+section.cta.flexy.row button {
+    padding: .5em 1em;
+    border: 0;
+    outline: none;
+    opacity: .75;
+    color: #f8f8f8;
+    background-color: #1b1b1b;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: .15em;
+    box-shadow: 0 0 1em #1b1b1b40;
+    cursor: pointer;
+    transition: all 100ms ease-in 0s;
+    text-transform: capitalize;
+    max-width: 100%;
+    width: fit-content;
+}
+
+dialog#newEventDialog input:is([type="reset"], [type="button"], [type="submit"]):hover,
+section.cta.flexy.row button:hover {
+    opacity: 1;
+    color: #fcfcfc;
+    transform: translate(-.05em, -.1em);
+    transition: all 100ms ease-out 0s;
+}
+
+section.cta.flexy.row button:hover {
+    box-shadow: 0 0 1em #1b1b1b80;
+}
+
+dialog#newEventDialog input[type="button"][value="cancel"] {
+    background-color: var(--color-cancel);
+    box-shadow: 0 0 .5em var(--color-cancel-light);
+}
+
+dialog#newEventDialog input[type="reset"] {
+    background-color: var(--color-reset);
+    box-shadow: 0 0 .5em var(--color-reset-light);
+}
+
+dialog#newEventDialog input[type="submit"] {
+    background-color: var(--color-cloud);
+    box-shadow: 0 0 .5em var(--color-cloud-light);
+}
+
+output {
+    font-size: 1.5rem;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+dialog {
+    margin: auto;
+    padding: 1em 2em;
+    border-radius: 1em;
+    min-width: 75dvw;
+    max-width: 100%;
+    max-height: 75dvh;
+    height: auto;
+    aspect-ratio: 2/1;
+}
+
+dialog#newEventDialog form {
+    padding: 1em;
+    width: 100%;
+}
+
+dialog fieldset {
+    border: 0;
+}
+
+dialog legend {
+    padding-bottom: 1em;
+    user-select: none;
+}
+
+dialog h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+
+dialog textarea {
+    aspect-ratio: auto;
+    min-height: 24dvh;
+    resize: vertical;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+    scroll-snap-type: y mandatory;
+}
+
+dialog input,
+dialog textarea {
+    padding: .5em .75em;
+    font-size: 1.5rem;
+    line-height: 2;
+    width: 100%;
+}
+
+dialog details {
+    max-width: 96%;
+    font-size: 1.35rem;
+    font-weight: 700;
+    gap: .5em;
+}
+
+dialog details[open] summary {
+    border: 0;
+    margin: 0;
+    user-select: none;
+}
+
+dialog details[open] label {
+    padding: .25em 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: .25em;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+dialog details[open] label:has(input[type="radio"]) {
+    padding: .85em 0 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+dialog details[open] input[type="radio"] {
+    padding: .25em;
+    width: 1.75em;
+    height: 1.75em;
+}
+
+dialog input[type="date"] {
+    cursor: default;
+}
+
+dialog input[type="date"]::after {
+    cursor: pointer;
+}
+
+dialog input[type="file"] {
+    cursor: pointer;
+}
