@@ -43,12 +43,13 @@
         <header>
             <h1>Ashaam system administrator</h1>
         </header>
-        <section class="cta flexy row">
+        <section class="cta flexy">
             <button type="button" id="newEventOpenButton" title="Create new event">Create new event</button>
-            <button type="button" id="resetDialogsButton" title="Reset dialogs">Reset dialogs</button>
+            <button type="button" id="resetAllDialogsButton" title="Reset all">Reset all</button>
         </section>
         <dialog id="newEventDialog">
-            <form action="./" method="post" id="newEventForm">
+            <form action="./" method="dialog" id="newEventForm">
+                <button type="button" id="newEventCloseButton" title="Close" aria-label="close" autofocus>&cross;</button>
                 <fieldset class="flexy">
                     <legend><h3>Create new event</h3></legend>
                     <details id="address-details" class="flexy">
@@ -92,8 +93,8 @@
                     </details>
                     <div class="cta flexy row">
                         <input type="reset" value="reset" title="Reset" />
-                        <input type="submit" value="submit" formmethod="dialog" title="Submit" />
-                        <input type="button" value="cancel" id="newEventCancelButton" title="Cancel" autofocus />
+                        <input type="submit" value="submit" formmethod="dialog" title="Submit" formnovalidate="formnovalidate" />
+                        <input type="button" value="cancel" id="newEventCancelButton" title="Cancel" />
                     </div>
                 </fieldset>
             </form>
@@ -103,8 +104,9 @@
                 <!-- Dialogs output here -->
             </output>
             <div class="cta flexy row">
-                <button type="button" title="Select">Select</button>
-                <button type="button" title="Deselect">Deselect</button>
+                <button type="button" title="Select text" data-button-role="select">Select text</button>
+                <button type="button" title="Copy selected" data-button-role="copy">Copy selected</button>
+                <button type="button" title="Deselect" data-button-role="deselect">Deselect</button>
             </div>
         </section>
     </main>
