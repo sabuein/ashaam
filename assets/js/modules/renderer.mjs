@@ -1,6 +1,7 @@
 "use strict";
 
-import { readJSONFile } from "./data.mjs";
+import { readJSONFile } from "data";
+import { cl, id, qs } from "helpers";
 
 // Define the callback functions to handle the retrieved JSONP data
 const handleEventsResponse = (data) => {
@@ -22,6 +23,48 @@ const handleEventsResponse = (data) => {
     } finally {
         if (!!data) console.dir(data); // console.log(JSON.stringify(data, null, 2));
     }
+};
+
+const setDialog = (selector) => {
+
+    const openButton = id(`${selector}OpenButton`),
+        cancelButton = id(`${selector}CancelButton`),
+        formElement = id(`${selector}Form`),
+        dialogElement = id(`${selector}Dialog`);
+    
+    // Show the dialog button opens the <dialog> modally
+    openButton.addEventListener("click", (e) => {
+        dialogElement.showModal();
+    });
+
+    cancelButton.addEventListener("click", (e) => {
+        dialogElement.close();
+        dialogElement.returnValue = qs("output").innerText = null;
+    });
+    
+    formElement.addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const formData = new FormData(e.target), entries = new Object();
+        for (const entry of formData.entries()) if (!!entry[1] && typeof entry[1] === "string") entries[entry[0]] = entry[1];
+        if (!!entries && Object.keys(entries).length > 0 ) dialogElement.returnValue = JSON.stringify(entries, null, 2);
+        formElement.reset();
+        dialogElement.close();
+    }, false);
+
+    // Cancel button closes the dialog without submitting the form
+    dialogElement.addEventListener("close", (e) => {
+        if (dialogElement.returnValue !== "null") {
+            alert(`#${selector}Dialog has a return value. View it in the console.`)
+            cl(dialogElement.returnValue);
+            qs("output").innerText = dialogElement.returnValue;
+        }
+    });
+
+    // Empty the dialog return value and output area if "Esc" key pressed
+    dialogElement.addEventListener("keydown", (e) => {
+        if (e.code === "Escape") dialogElement.returnValue = qs("output").innerText = null;
+    });
 };
 
 const renderEvent = (data, output) => {
@@ -178,5 +221,6 @@ const useTemplate = () => {
 // console.log(xX);
 
 export {
-    handleEventsResponse
+    handleEventsResponse,
+    setDialog
 };

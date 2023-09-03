@@ -1,6 +1,7 @@
-const id = (id) => { return document.getElementById(id); }
-const cn = (name) => { return document.getElementsByClassName(name); }
-const cl = (thing) => { console.log(thing); }
+const id = (id) =>  document.getElementById(id);
+const cn = (name) => document.getElementsByClassName(name);
+const qs = (selector) => document.querySelector(selector);
+const cl = (thing) => console.log(thing);
 
 // Serialization the JSON to a string
 const convert = (json) => { return JSON.stringify(json) };
@@ -39,6 +40,7 @@ export {
     cn,
     cl,
     convert,
+    qs,
     retrieve,
     inject,
     fetcher

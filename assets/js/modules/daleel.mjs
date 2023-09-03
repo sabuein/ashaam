@@ -1,4 +1,4 @@
-import defaultExport, { cl, cn, retrieve, inject } from "./helpers.js";
+import defaultExport, { cl, cn, retrieve, inject } from "helpers.js";
 import london from "../data/london.json" assert { type: "json" }; // Deserialization to native object
 /*
 //////////////////////////////////////////////////////////////////////////
