@@ -30,26 +30,26 @@ const setDialog = (selector) => {
     const openButton = id(`${selector}OpenButton`),
         cancelButton = id(`${selector}CancelButton`),
         formElement = id(`${selector}Form`),
-        dialogElement = id(`${selector}Dialog`);
-    
+        dialogElement = id(`${selector}Dialog`),
+        dialogDetails = id(`${selector}Details`);
+
     // Show the dialog button opens the <dialog> modally
-    openButton.addEventListener("click", (e) => {
-        dialogElement.showModal();
-    });
+    openButton.addEventListener("click", (e) => dialogElement.showModal());
 
     cancelButton.addEventListener("click", (e) => {
         dialogElement.close();
         dialogElement.returnValue = qs("output").innerText = null;
     });
-    
+
     formElement.addEventListener("submit", (e) => {
         e.preventDefault();
         e.stopPropagation();
         const formData = new FormData(e.target), entries = new Object();
         for (const entry of formData.entries()) if (!!entry[1] && typeof entry[1] === "string") entries[entry[0]] = entry[1];
-        if (!!entries && Object.keys(entries).length > 0 ) dialogElement.returnValue = JSON.stringify(entries, null, 2);
+        if (!!entries && Object.keys(entries).length > 0) dialogElement.returnValue = JSON.stringify(entries, null, 2);
         formElement.reset();
         dialogElement.close();
+        setOutputArea();
     }, false);
 
     // Cancel button closes the dialog without submitting the form
@@ -57,14 +57,46 @@ const setDialog = (selector) => {
         if (dialogElement.returnValue !== "null") {
             alert(`#${selector}Dialog has a return value. View it in the console.`)
             cl(dialogElement.returnValue);
+            qs("section:has(output)").style.display = "flex";
             qs("output").innerText = dialogElement.returnValue;
+        } else {
+            qs("section:has(output)").style.display = "none";
         }
     });
 
     // Empty the dialog return value and output area if "Esc" key pressed
     dialogElement.addEventListener("keydown", (e) => {
-        if (e.code === "Escape") dialogElement.returnValue = qs("output").innerText = null;
+        if (e.code === "Escape") {
+            dialogElement.returnValue = qs("output").innerText = null;
+            qs("section:has(output)").style.display = "none";
+        }
     });
+
+    dialogDetails.open = true;
+};
+
+const setOutputArea = () => {
+    const targetOutput = qs(`output`),
+        selectButton = qs(`output~div.cta>button[title="Select"]`),
+        deselectButton = qs(`output~div.cta>button[title="Deselect"]`);
+
+    selectButton.addEventListener("click", (e) => {
+        // Clear any current selection
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+
+        // Select paragraph
+        const range = document.createRange();
+        range.selectNodeContents(targetOutput);
+        selection.addRange(range);
+    });
+
+    if (!!deselectButton) {
+        deselectButton.addEventListener("click", (e) => {
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+        });
+    }
 };
 
 const renderEvent = (data, output) => {
