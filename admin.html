@@ -51,7 +51,7 @@
             <form action="./" method="post" id="newEventForm">
                 <fieldset class="flexy">
                     <legend><h3>Create new event</h3></legend>
-                    <details class="flexy">
+                    <details id="address-details" class="flexy">
                         <summary>Address</summary>
                         <label for="line1">Line 1&colon;<input type="text" name="line1" id="line1" placeholder="66 Westow Street" /></label>
                         <label for="line2">Line 2&colon;<input type="text" name="line2" id="line2" placeholder="The Nightingale House" /></label>
@@ -62,12 +62,12 @@
                         <label for="longitude">Longitude&colon;<input type="tel" name="longitude" id="longitude" placeholder="-0.0845448" pattern="-?[0-9]+(.)*" /></label>
                         <label for="elevation">Elevation&colon;<input type="text" name="elevation" id="elevation" placeholder="17z" /></label>
                     </details>
-                    <details class="flexy">
+                    <details id="venue-details" class="flexy">
                         <summary>Venue</summary>
                         <label for="venueName">Name&colon;</label><input type="text" name="venueName" id="venueName" placeholder="Phoenix Community Centre" />
                         <label for="venuePhone">Phone&colon;</label><input type="tel" name="venuePhone" id="venuePhone" placeholder="020-8771-6023" />
                     </details>
-                    <details class="flexy">
+                    <details id="organizer-details" class="flexy">
                         <summary>Organizer</summary>
                         <label for="organizerName">Name&colon;<input type="text" name="organizerName" id="organizerName" placeholder="Crystal Palace Friends of Palestine (CPFP)" /></label>
                         <label for="organizerEmail">Email&colon;<input type="email" name="organizerEmail" id="organizerEmail" placeholder="crystalpalestinegroup@gmail.com" /></label>
@@ -78,7 +78,7 @@
                         <label for="organizerLogoURL">Logo URL&colon;<input type="url" name="organizerLogoURL" id="organizerLogoURL" placeholder="./assets/data/images/crystalpalacefriendsofpalestine-logo.png" /></label>
                         <label for="organizerLogo">Logo&colon;<input type="file" name="organizerLogo" id="organizerLogo" /></label>
                     </details>
-                    <details class="flexy">
+                    <details id="newEventDetails" class="flexy">
                         <summary>Details</summary>
                         <label for="eventTitle">Title&colon;<input type="text" name="eventTitle" id="eventTitle" placeholder="Palestine at the Palace" /></label>
                         <label for="descriptionHTML">Description HTML&colon;<textarea name="descriptionHTML" id="descriptionHTML" placeholder="&lt;p&gt;&quot;Palestine at the Palace&quot; is an art and cultural event showcasing the talents and traditions of Palestine&period; The event features a diverse range of activities including art exhibitions, crafts, music, and food. It is scheduled to take place on Saturday, 2nd September 2023, from 11:00 am to 4:00 pm.&lt;/p&gt;&lt;p&gt;The event highlights the works of award-winning Palestinian artists through an exhibition, providing an opportunity to appreciate and purchase original artwork and prints. In addition to visual art, the event also showcases ceramics, embroidery, and homeware, displaying the traditional craftsmanship of Palestine.&lt;/p&gt;&lt;p&gt;Attendees can explore fair trade Palestinian produce, offering a variety of food and culinary delights that represent Palestinian cuisine. The event also includes a selection of unique jewelry items for those interested in adornments.&lt;/p&gt;&lt;p&gt;To enhance the cultural experience, live music performances are scheduled, featuring Palestinian musicians and creating an immersive atmosphere. Additionally, participants can engage in a raffle, providing an opportunity to win prizes and further support the event.&lt;/p&gt;&lt;p&gt;Overall, &quot;Palestine at the Palace&quot; aims to celebrate the rich art, crafts, music, and culinary traditions of Palestine while supporting Palestinian artists, artisans, and fair trade practices.&lt;/p&gt;"></textarea></label>
@@ -98,7 +98,15 @@
                 </fieldset>
             </form>
         </dialog>
-        <output></output>
+        <section class="flexy">
+            <output>
+                <!-- Dialogs output here -->
+            </output>
+            <div class="cta flexy row">
+                <button type="button" title="Select">Select</button>
+                <button type="button" title="Deselect">Deselect</button>
+            </div>
+        </section>
     </main>
     <footer class="global flexy row">
         <div class="gotop flexy"><a href="#content" title="Back to main content">&#128285;</a></div>
