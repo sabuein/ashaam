@@ -846,9 +846,14 @@ dialog#newEventDialog div.cta {
     gap: 1em;
 }
 
+dialog#newEventDialog div.cta {
+    position: fixed;
+    bottom: 3.5dvh;
+}
+
 dialog#newEventDialog input:is([type="reset"], [type="button"], [type="submit"]),
 section.cta.flexy.row button {
-    padding: .5em 1em;
+    padding: .25em 1em;
     border: 0;
     outline: none;
     opacity: .75;
@@ -892,10 +897,46 @@ dialog#newEventDialog input[type="submit"] {
     box-shadow: 0 0 .5em var(--color-cloud-light);
 }
 
-output {
-    font-size: 1.5rem;
+section.flexy:has(output) {
+    display: none;
+    margin: 1em 0;
+    border: thin solid currentColor;
+    border-left: 0;
+    border-right: 0;
     width: 100%;
+}
+
+section:has(output)>div {
+    gap: 1em;
+}
+
+section:has(output)>div>button {
+    padding: 0.5em 1em;
+    border: thin solid #1b1b1b;
+    outline: none;
+    color: #1b1b1b;
+    background-color: #f8f8f850;
+    font-size: .75rem;
+    font-weight: 700;
+    border-radius: .1em;
+    box-shadow: 0 0 1em #f8f8f850;
+    user-select: none;
+    cursor: pointer;
+    transition: all 150ms ease-out 0s;
+}
+
+section:has(output)>div>button:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 0 .25em 0 #1b1b1b50;
+    transform: translate(-.01em, -.05em);
+    transition: all 150ms ease-in 0s;
+}
+
+output {    
+    padding: 1.25em 0.25em;
+    font-size: 1.5rem;
     word-wrap: break-word;
+    width: 100%;
 }
 
 dialog {
@@ -907,10 +948,25 @@ dialog {
     max-height: 75dvh;
     height: auto;
     aspect-ratio: 2/1;
+    position: relative;
+    box-shadow: 0 0 1em #11111190;
+    border: thin solid #1a1a1a60;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+dialog::backdrop {
+    opacity: .5;
+    background-color: #1a1a1a50;
+}
+
+dialog::-webkit-scrollbar-track,
+dialog::-webkit-scrollbar-button {
+    outline: none;
 }
 
 dialog#newEventDialog form {
-    padding: 1em;
+    padding: .5em;
     width: 100%;
 }
 
@@ -939,12 +995,30 @@ dialog textarea {
     scroll-snap-type: y mandatory;
 }
 
+textarea::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-button {
+    outline: none;
+}
+
 dialog input,
 dialog textarea {
     padding: .5em .75em;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 500;
+    color: var(--color-black);
     line-height: 2;
     width: 100%;
+}
+
+dialog input:-webkit-autofill,
+dialog input:-webkit-autofill:hover, 
+dialog input:-webkit-autofill:focus, 
+dialog input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--color-black);
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 0 0 var(--lightgray-color);
 }
 
 dialog details {
@@ -983,6 +1057,7 @@ dialog details[open] input[type="radio"] {
     padding: .25em;
     width: 1.75em;
     height: 1.75em;
+    cursor: pointer;
 }
 
 dialog input[type="date"] {
