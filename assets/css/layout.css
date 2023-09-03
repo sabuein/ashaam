@@ -841,7 +841,7 @@ input:focus:invalid {
     }
 }*/
 
-section.cta.flexy.row,
+section.cta.flexy,
 dialog#newEventDialog div.cta {
     gap: 1em;
 }
@@ -852,7 +852,7 @@ dialog#newEventDialog div.cta {
 }
 
 dialog#newEventDialog input:is([type="reset"], [type="button"], [type="submit"]),
-section.cta.flexy.row button {
+section.cta.flexy button {
     padding: .25em 1em;
     border: 0;
     outline: none;
@@ -871,14 +871,14 @@ section.cta.flexy.row button {
 }
 
 dialog#newEventDialog input:is([type="reset"], [type="button"], [type="submit"]):hover,
-section.cta.flexy.row button:hover {
+section.cta.flexy button:hover {
     opacity: 1;
     color: #fcfcfc;
     transform: translate(-.05em, -.1em);
     transition: all 100ms ease-out 0s;
 }
 
-section.cta.flexy.row button:hover {
+section.cta.flexy button:hover {
     box-shadow: 0 0 1em #1b1b1b80;
 }
 
@@ -910,7 +910,8 @@ section:has(output)>div {
     gap: 1em;
 }
 
-section:has(output)>div>button {
+dialog>form>button[type="button"],
+section:has(output)>div>button[type="button"] {
     padding: 0.5em 1em;
     border: thin solid #1b1b1b;
     outline: none;
@@ -925,11 +926,35 @@ section:has(output)>div>button {
     transition: all 150ms ease-out 0s;
 }
 
-section:has(output)>div>button:hover {
+dialog>form>button[type="button"]:hover,
+section:has(output)>div>button[type="button"]:hover {
     background-color: #f8f8f8;
     box-shadow: 0 0 .25em 0 #1b1b1b50;
     transform: translate(-.01em, -.05em);
     transition: all 150ms ease-in 0s;
+}
+
+dialog>form>button[type="button"] {
+    position: fixed;
+    top: 13dvh;
+    right: 14dvw;
+    padding: .5em;
+    border: 0;
+    border-radius: 50%;
+    color: var(--ashaam-text-color);
+    background-color: transparent;
+    box-shadow: none;
+    width: 2em;
+    height: 2em;
+    font-size: 2rem;
+    transition: all 100ms ease-out 0s;
+}
+
+dialog>form>button[type="button"]:hover {
+    font-size: 2.35rem;
+    background-color: transparent;
+    box-shadow: none;
+    transition: all 100ms ease-in 0s;
 }
 
 output {    
@@ -966,6 +991,7 @@ dialog::-webkit-scrollbar-button {
 }
 
 dialog#newEventDialog form {
+    position: relative;
     padding: .5em;
     width: 100%;
 }
